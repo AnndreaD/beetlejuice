@@ -3,7 +3,8 @@
         return Math.floor(Math.random() * 360);
     }
 
-    let visibleSpin = false;
+    let visibleSpin: boolean = false;
+    let imagePosition: number = 360;
 
     function spin(node, { duration }) {
         return {
@@ -18,6 +19,7 @@
 
     function toggleVisible() {
         visibleSpin = true;
+        imagePosition = rotateImage();
         setTimeout(() => {
             visibleSpin = false;
         }, 3000);
@@ -30,12 +32,30 @@
         font-size: 4em;
         height: 70%;
     }
+
+    button {
+        width: 50%;
+        height: 3rem;
+        align-items: center;
+        margin-left: 25%;
+    }
+
+    .bottlecontainer {
+        margin-left: 5%;
+        width: 70%;
+        text-align: center;
+    }
 </style>
 
 <main>
-    <button on:click={toggleVisible}>spinn bottle</button>
-    <br />
-    {#if visibleSpin}
-        <img class="centered" in:spin={{ duration: 5000 }} src="bajablast.png" alt="background" id="myimage" />
-    {:else}<img style="transform:rotate({rotateImage()}deg);" src="bajablast.png" alt="background" id="myimage" />{/if}
+    <div class="bottlecontainer">
+        <button on:click={toggleVisible}>spinn bottle</button>
+        <br />
+        <br />
+        {#if visibleSpin}
+            <img class="centered" in:spin={{ duration: 5000 }} src="bajablast.png" alt="background" id="myimage" />
+        {:else}
+            <img style="transform:rotate({imagePosition}deg);" src="bajablast.png" alt="background" id="myimage" />
+        {/if}
+    </div>
 </main>

@@ -2452,10 +2452,10 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(b, file$2, 20, 26, 314);
-    			add_location(p, file$2, 20, 4, 292);
+    			add_location(b, file$2, 19, 26, 319);
+    			add_location(p, file$2, 19, 4, 297);
     			attr_dev(main, "class", "svelte-92w3al");
-    			add_location(main, file$2, 19, 0, 281);
+    			add_location(main, file$2, 18, 0, 286);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
@@ -2524,7 +2524,7 @@ var app = (function () {
 
     const file$3 = "src/pages/Bottlespinn.svelte";
 
-    // (36:4) {:else}
+    // (53:8) {:else}
     function create_else_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -2546,17 +2546,21 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			set_style(img, "transform", "rotate(" + rotateImage() + "deg)");
+    			set_style(img, "transform", "rotate(" + /*imagePosition*/ ctx[1] + "deg)");
     			if (img.src !== (img_src_value = "bajablast.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background");
     			attr_dev(img, "id", "myimage");
-    			attr_dev(img, "class", "svelte-zne7qh");
-    			add_location(img, file$3, 35, 11, 787);
+    			attr_dev(img, "class", "svelte-1o4kunu");
+    			add_location(img, file$3, 53, 12, 1149);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*imagePosition*/ 2) {
+    				set_style(img, "transform", "rotate(" + /*imagePosition*/ ctx[1] + "deg)");
+    			}
+    		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
@@ -2568,14 +2572,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(36:4) {:else}",
+    		source: "(53:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:4) {#if visibleSpin}
+    // (51:8) {#if visibleSpin}
     function create_if_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -2597,11 +2601,11 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(img, "class", "centered svelte-zne7qh");
+    			attr_dev(img, "class", "centered svelte-1o4kunu");
     			if (img.src !== (img_src_value = "bajablast.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background");
     			attr_dev(img, "id", "myimage");
-    			add_location(img, file$3, 34, 8, 672);
+    			add_location(img, file$3, 51, 12, 1017);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -2625,7 +2629,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(34:4) {#if visibleSpin}",
+    		source: "(51:8) {#if visibleSpin}",
     		ctx
     	});
 
@@ -2634,11 +2638,14 @@ var app = (function () {
 
     function create_fragment$5(ctx) {
     	let main;
+    	let div;
     	let button;
     	let t0;
     	let t1;
-    	let br;
+    	let br0;
     	let t2;
+    	let br1;
+    	let t3;
     	let mounted;
     	let dispose;
 
@@ -2653,44 +2660,59 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
+    			div = element("div");
     			button = element("button");
     			t0 = text("spinn bottle");
     			t1 = space();
-    			br = element("br");
+    			br0 = element("br");
     			t2 = space();
+    			br1 = element("br");
+    			t3 = space();
     			if_block.c();
     			this.h();
     		},
     		l: function claim(nodes) {
     			main = claim_element(nodes, "MAIN", {});
     			var main_nodes = children(main);
-    			button = claim_element(main_nodes, "BUTTON", {});
+    			div = claim_element(main_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			button = claim_element(div_nodes, "BUTTON", { class: true });
     			var button_nodes = children(button);
     			t0 = claim_text(button_nodes, "spinn bottle");
     			button_nodes.forEach(detach_dev);
-    			t1 = claim_space(main_nodes);
-    			br = claim_element(main_nodes, "BR", {});
-    			t2 = claim_space(main_nodes);
-    			if_block.l(main_nodes);
+    			t1 = claim_space(div_nodes);
+    			br0 = claim_element(div_nodes, "BR", {});
+    			t2 = claim_space(div_nodes);
+    			br1 = claim_element(div_nodes, "BR", {});
+    			t3 = claim_space(div_nodes);
+    			if_block.l(div_nodes);
+    			div_nodes.forEach(detach_dev);
     			main_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(button, file$3, 31, 4, 576);
-    			add_location(br, file$3, 32, 4, 635);
-    			add_location(main, file$3, 30, 0, 565);
+    			attr_dev(button, "class", "svelte-1o4kunu");
+    			add_location(button, file$3, 47, 8, 894);
+    			add_location(br0, file$3, 48, 8, 957);
+    			add_location(br1, file$3, 49, 8, 972);
+    			attr_dev(div, "class", "bottlecontainer svelte-1o4kunu");
+    			add_location(div, file$3, 46, 4, 856);
+    			add_location(main, file$3, 45, 0, 845);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, button);
+    			append_dev(main, div);
+    			append_dev(div, button);
     			append_dev(button, t0);
-    			append_dev(main, t1);
-    			append_dev(main, br);
-    			append_dev(main, t2);
-    			if_block.m(main, null);
+    			append_dev(div, t1);
+    			append_dev(div, br0);
+    			append_dev(div, t2);
+    			append_dev(div, br1);
+    			append_dev(div, t3);
+    			if_block.m(div, null);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*toggleVisible*/ ctx[1], false, false, false);
+    				dispose = listen_dev(button, "click", /*toggleVisible*/ ctx[2], false, false, false);
     				mounted = true;
     			}
     		},
@@ -2704,7 +2726,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.c();
     					transition_in(if_block, 1);
-    					if_block.m(main, null);
+    					if_block.m(div, null);
     				}
     			}
     		},
@@ -2750,9 +2772,11 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Bottlespinn", slots, []);
     	let visibleSpin = false;
+    	let imagePosition = 360;
 
     	function toggleVisible() {
     		$$invalidate(0, visibleSpin = true);
+    		$$invalidate(1, imagePosition = rotateImage());
 
     		setTimeout(
     			() => {
@@ -2771,19 +2795,21 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		rotateImage,
     		visibleSpin,
+    		imagePosition,
     		spin,
     		toggleVisible
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("visibleSpin" in $$props) $$invalidate(0, visibleSpin = $$props.visibleSpin);
+    		if ("imagePosition" in $$props) $$invalidate(1, imagePosition = $$props.imagePosition);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [visibleSpin, toggleVisible];
+    	return [visibleSpin, imagePosition, toggleVisible];
     }
 
     class Bottlespinn extends SvelteComponentDev {
@@ -2803,7 +2829,7 @@ var app = (function () {
     /* src/App.svelte generated by Svelte v3.26.0 */
     const file$4 = "src/App.svelte";
 
-    // (35:12) <Link to="/">
+    // (34:12) <Link to="/">
     function create_default_slot_4(ctx) {
     	let t;
 
@@ -2826,14 +2852,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(35:12) <Link to=\\\"/\\\">",
+    		source: "(34:12) <Link to=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (36:12) <Link to="about">
+    // (35:12) <Link to="about">
     function create_default_slot_3(ctx) {
     	let t;
 
@@ -2856,14 +2882,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(36:12) <Link to=\\\"about\\\">",
+    		source: "(35:12) <Link to=\\\"about\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (37:12) <Link to="bottlespinn">
+    // (36:12) <Link to="bottlespinn">
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -2886,14 +2912,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(37:12) <Link to=\\\"bottlespinn\\\">",
+    		source: "(36:12) <Link to=\\\"bottlespinn\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (47:12) <Route path="/">
+    // (46:12) <Route path="/">
     function create_default_slot_1(ctx) {
     	let home;
     	let current;
@@ -2928,14 +2954,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(47:12) <Route path=\\\"/\\\">",
+    		source: "(46:12) <Route path=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (33:4) <Router {url}>
+    // (32:4) <Router {url}>
     function create_default_slot(ctx) {
     	let nav;
     	let link0;
@@ -3039,8 +3065,8 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(nav, file$4, 33, 8, 740);
-    			add_location(div, file$4, 38, 8, 902);
+    			add_location(nav, file$4, 32, 8, 712);
+    			add_location(div, file$4, 37, 8, 874);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
@@ -3124,7 +3150,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(33:4) <Router {url}>",
+    		source: "(32:4) <Router {url}>",
     		ctx
     	});
 
@@ -3176,10 +3202,10 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(h1, "class", "svelte-u9qvfs");
-    			add_location(h1, file$4, 31, 4, 685);
-    			attr_dev(main, "class", "svelte-u9qvfs");
-    			add_location(main, file$4, 30, 0, 674);
+    			attr_dev(h1, "class", "svelte-117phcx");
+    			add_location(h1, file$4, 30, 4, 657);
+    			attr_dev(main, "class", "svelte-117phcx");
+    			add_location(main, file$4, 29, 0, 646);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
