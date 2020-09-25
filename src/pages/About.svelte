@@ -1,5 +1,5 @@
-<script>
-    let pageName = 'About Page';
+<script lang="ts">
+    let pageName: string = 'About Page';
 </script>
 
 <style>
