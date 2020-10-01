@@ -24,11 +24,13 @@
         }
     }
     .containerbox {
-        border: 1px solid;
+        border: 2px solid #f0ab7a;
+        border-radius: 5px;
         width: 40%;
         float: left;
         padding: 1rem;
         margin: 1rem;
+        color: #277bab;
     }
     .textarea {
         width: 400px;
@@ -37,10 +39,28 @@
     .categoryinput {
         width: 270px;
     }
+
+    button {
+        align-items: center;
+
+        background: #277bab;
+        color: #fac7a2;
+        border-radius: 5px;
+        border: none;
+    }
+    textarea,
+    input {
+        color: #277bab;
+    }
+
+    p {
+        font-weight: bold;
+    }
 </style>
 
 <main>
-    <h3>Admin page</h3>
+    <br />
+    <br />
     <div class="containerbox">
         <h2>New Question</h2>
         <p>text:</p>

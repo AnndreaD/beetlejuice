@@ -38,12 +38,18 @@
         height: 3rem;
         align-items: center;
         margin-left: 25%;
+        background: #f0ab7a;
+        color: #277bab;
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
     }
 
     .bottlecontainer {
         margin-left: 5%;
         width: 70%;
         text-align: center;
+        margin-top: 2rem;
     }
 </style>
 

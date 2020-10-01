@@ -702,13 +702,6 @@ var app = (function () {
         else
             dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
     }
-    function set_data_dev(text, data) {
-        data = '' + data;
-        if (text.wholeText === data)
-            return;
-        dispatch_dev("SvelteDOMSetData", { node: text, data });
-        text.data = data;
-    }
     function validate_slots(name, slot, keys) {
         for (const slot_key of Object.keys(slot)) {
             if (!~keys.indexOf(slot_key)) {
@@ -2289,80 +2282,36 @@ var app = (function () {
 
     function create_fragment$3(ctx) {
     	let main;
-    	let h3;
-    	let t0;
-    	let t1;
-    	let t2;
-    	let p0;
-    	let t3;
-    	let b;
-    	let t4;
-    	let t5;
-    	let p1;
-    	let t6;
+    	let p;
+    	let t;
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			h3 = element("h3");
-    			t0 = text(/*pageName*/ ctx[0]);
-    			t1 = text("!");
-    			t2 = space();
-    			p0 = element("p");
-    			t3 = text("Welcome this is my ");
-    			b = element("b");
-    			t4 = text(/*pageName*/ ctx[0]);
-    			t5 = space();
-    			p1 = element("p");
-    			t6 = text("this site is under construction");
+    			p = element("p");
+    			t = text("This site is under construction, check out 'Add new' and bottlespinn");
     			this.h();
     		},
     		l: function claim(nodes) {
     			main = claim_element(nodes, "MAIN", { class: true });
     			var main_nodes = children(main);
-    			h3 = claim_element(main_nodes, "H3", {});
-    			var h3_nodes = children(h3);
-    			t0 = claim_text(h3_nodes, /*pageName*/ ctx[0]);
-    			t1 = claim_text(h3_nodes, "!");
-    			h3_nodes.forEach(detach_dev);
-    			t2 = claim_space(main_nodes);
-    			p0 = claim_element(main_nodes, "P", {});
-    			var p0_nodes = children(p0);
-    			t3 = claim_text(p0_nodes, "Welcome this is my ");
-    			b = claim_element(p0_nodes, "B", {});
-    			var b_nodes = children(b);
-    			t4 = claim_text(b_nodes, /*pageName*/ ctx[0]);
-    			b_nodes.forEach(detach_dev);
-    			p0_nodes.forEach(detach_dev);
-    			t5 = claim_space(main_nodes);
-    			p1 = claim_element(main_nodes, "P", {});
-    			var p1_nodes = children(p1);
-    			t6 = claim_text(p1_nodes, "this site is under construction");
-    			p1_nodes.forEach(detach_dev);
+    			p = claim_element(main_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t = claim_text(p_nodes, "This site is under construction, check out 'Add new' and bottlespinn");
+    			p_nodes.forEach(detach_dev);
     			main_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(h3, file$1, 26, 4, 421);
-    			add_location(b, file$1, 27, 26, 468);
-    			add_location(p0, file$1, 27, 4, 446);
-    			add_location(p1, file$1, 28, 4, 494);
-    			attr_dev(main, "class", "svelte-u9qvfs");
-    			add_location(main, file$1, 25, 0, 410);
+    			attr_dev(p, "class", "svelte-vt4otf");
+    			add_location(p, file$1, 23, 4, 360);
+    			attr_dev(main, "class", "svelte-vt4otf");
+    			add_location(main, file$1, 22, 0, 349);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, h3);
-    			append_dev(h3, t0);
-    			append_dev(h3, t1);
-    			append_dev(main, t2);
-    			append_dev(main, p0);
-    			append_dev(p0, t3);
-    			append_dev(p0, b);
-    			append_dev(b, t4);
-    			append_dev(main, t5);
-    			append_dev(main, p1);
-    			append_dev(p1, t6);
+    			append_dev(main, p);
+    			append_dev(p, t);
     		},
     		p: noop,
     		i: noop,
@@ -2383,27 +2332,16 @@ var app = (function () {
     	return block;
     }
 
-    function instance$3($$self, $$props, $$invalidate) {
+    function instance$3($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Home", slots, []);
-    	let pageName = "Home Page";
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Home> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ pageName });
-
-    	$$self.$inject_state = $$props => {
-    		if ("pageName" in $$props) $$invalidate(0, pageName = $$props.pageName);
-    	};
-
-    	if ($$props && "$$inject" in $$props) {
-    		$$self.$inject_state($$props.$$inject);
-    	}
-
-    	return [pageName];
+    	return [];
     }
 
     class Home extends SvelteComponentDev {
@@ -2527,7 +2465,7 @@ var app = (function () {
 
     const file$3 = "src/pages/Bottlespinn.svelte";
 
-    // (53:8) {:else}
+    // (59:8) {:else}
     function create_else_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -2553,8 +2491,8 @@ var app = (function () {
     			if (img.src !== (img_src_value = "bajablast.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background");
     			attr_dev(img, "id", "myimage");
-    			attr_dev(img, "class", "svelte-1o4kunu");
-    			add_location(img, file$3, 53, 12, 1149);
+    			attr_dev(img, "class", "svelte-2ekc46");
+    			add_location(img, file$3, 59, 12, 1306);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -2575,14 +2513,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(53:8) {:else}",
+    		source: "(59:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:8) {#if visibleSpin}
+    // (57:8) {#if visibleSpin}
     function create_if_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -2604,11 +2542,11 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(img, "class", "centered svelte-1o4kunu");
+    			attr_dev(img, "class", "centered svelte-2ekc46");
     			if (img.src !== (img_src_value = "bajablast.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background");
     			attr_dev(img, "id", "myimage");
-    			add_location(img, file$3, 51, 12, 1017);
+    			add_location(img, file$3, 57, 12, 1174);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -2632,7 +2570,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(51:8) {#if visibleSpin}",
+    		source: "(57:8) {#if visibleSpin}",
     		ctx
     	});
 
@@ -2694,13 +2632,13 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(button, "class", "svelte-1o4kunu");
-    			add_location(button, file$3, 47, 8, 894);
-    			add_location(br0, file$3, 48, 8, 957);
-    			add_location(br1, file$3, 49, 8, 972);
-    			attr_dev(div, "class", "bottlecontainer svelte-1o4kunu");
-    			add_location(div, file$3, 46, 4, 856);
-    			add_location(main, file$3, 45, 0, 845);
+    			attr_dev(button, "class", "svelte-2ekc46");
+    			add_location(button, file$3, 53, 8, 1051);
+    			add_location(br0, file$3, 54, 8, 1114);
+    			add_location(br1, file$3, 55, 8, 1129);
+    			attr_dev(div, "class", "bottlecontainer svelte-2ekc46");
+    			add_location(div, file$3, 52, 4, 1013);
+    			add_location(main, file$3, 51, 0, 1002);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
@@ -2845,13 +2783,14 @@ var app = (function () {
         const json = await res.json();
     }
 
-    /* src/pages/admin/AddQuestions.svelte generated by Svelte v3.26.0 */
-    const file$4 = "src/pages/admin/AddQuestions.svelte";
+    /* src/pages/admin/AddNew.svelte generated by Svelte v3.26.0 */
+    const file$4 = "src/pages/admin/AddNew.svelte";
 
     function create_fragment$6(ctx) {
     	let main;
-    	let h3;
+    	let br0;
     	let t0;
+    	let br1;
     	let t1;
     	let div0;
     	let h20;
@@ -2892,8 +2831,9 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
-    			h3 = element("h3");
-    			t0 = text("Admin page");
+    			br0 = element("br");
+    			t0 = space();
+    			br1 = element("br");
     			t1 = space();
     			div0 = element("div");
     			h20 = element("h2");
@@ -2933,10 +2873,9 @@ var app = (function () {
     		l: function claim(nodes) {
     			main = claim_element(nodes, "MAIN", { class: true });
     			var main_nodes = children(main);
-    			h3 = claim_element(main_nodes, "H3", {});
-    			var h3_nodes = children(h3);
-    			t0 = claim_text(h3_nodes, "Admin page");
-    			h3_nodes.forEach(detach_dev);
+    			br0 = claim_element(main_nodes, "BR", {});
+    			t0 = claim_space(main_nodes);
+    			br1 = claim_element(main_nodes, "BR", {});
     			t1 = claim_space(main_nodes);
     			div0 = claim_element(main_nodes, "DIV", { class: true });
     			var div0_nodes = children(div0);
@@ -2945,7 +2884,7 @@ var app = (function () {
     			t2 = claim_text(h20_nodes, "New Question");
     			h20_nodes.forEach(detach_dev);
     			t3 = claim_space(div0_nodes);
-    			p0 = claim_element(div0_nodes, "P", {});
+    			p0 = claim_element(div0_nodes, "P", { class: true });
     			var p0_nodes = children(p0);
     			t4 = claim_text(p0_nodes, "text:");
     			p0_nodes.forEach(detach_dev);
@@ -2960,14 +2899,14 @@ var app = (function () {
 
     			children(textarea0).forEach(detach_dev);
     			t6 = claim_space(div0_nodes);
-    			p1 = claim_element(div0_nodes, "P", {});
+    			p1 = claim_element(div0_nodes, "P", { class: true });
     			var p1_nodes = children(p1);
     			t7 = claim_text(p1_nodes, "category:");
     			p1_nodes.forEach(detach_dev);
     			t8 = claim_space(div0_nodes);
     			input0 = claim_element(div0_nodes, "INPUT", { type: true, class: true, name: true });
     			t9 = claim_space(div0_nodes);
-    			button0 = claim_element(div0_nodes, "BUTTON", {});
+    			button0 = claim_element(div0_nodes, "BUTTON", { class: true });
     			var button0_nodes = children(button0);
     			t10 = claim_text(button0_nodes, "Enter question");
     			button0_nodes.forEach(detach_dev);
@@ -2980,7 +2919,7 @@ var app = (function () {
     			t12 = claim_text(h21_nodes, "New Claim");
     			h21_nodes.forEach(detach_dev);
     			t13 = claim_space(div1_nodes);
-    			p2 = claim_element(div1_nodes, "P", {});
+    			p2 = claim_element(div1_nodes, "P", { class: true });
     			var p2_nodes = children(p2);
     			t14 = claim_text(p2_nodes, "text:");
     			p2_nodes.forEach(detach_dev);
@@ -2995,14 +2934,14 @@ var app = (function () {
 
     			children(textarea1).forEach(detach_dev);
     			t16 = claim_space(div1_nodes);
-    			p3 = claim_element(div1_nodes, "P", {});
+    			p3 = claim_element(div1_nodes, "P", { class: true });
     			var p3_nodes = children(p3);
     			t17 = claim_text(p3_nodes, "category:");
     			p3_nodes.forEach(detach_dev);
     			t18 = claim_space(div1_nodes);
     			input1 = claim_element(div1_nodes, "INPUT", { type: true, class: true, name: true });
     			t19 = claim_space(div1_nodes);
-    			button1 = claim_element(div1_nodes, "BUTTON", {});
+    			button1 = claim_element(div1_nodes, "BUTTON", { class: true });
     			var button1_nodes = children(button1);
     			t20 = claim_text(button1_nodes, "Enter Claim");
     			button1_nodes.forEach(detach_dev);
@@ -3011,44 +2950,52 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(h3, file$4, 48, 4, 1444);
-    			add_location(h20, file$4, 50, 8, 1503);
-    			add_location(p0, file$4, 51, 8, 1533);
+    			add_location(br0, file$4, 67, 4, 1755);
+    			add_location(br1, file$4, 68, 4, 1766);
+    			add_location(h20, file$4, 70, 8, 1812);
+    			attr_dev(p0, "class", "svelte-13rnqx2");
+    			add_location(p0, file$4, 71, 8, 1842);
     			attr_dev(textarea0, "type", "text");
-    			attr_dev(textarea0, "class", "textarea svelte-1btse7k");
+    			attr_dev(textarea0, "class", "textarea svelte-13rnqx2");
     			attr_dev(textarea0, "id", "fname");
     			attr_dev(textarea0, "name", "fname");
-    			add_location(textarea0, file$4, 52, 8, 1554);
-    			add_location(p1, file$4, 53, 8, 1650);
+    			add_location(textarea0, file$4, 72, 8, 1863);
+    			attr_dev(p1, "class", "svelte-13rnqx2");
+    			add_location(p1, file$4, 73, 8, 1959);
     			attr_dev(input0, "type", "text");
-    			attr_dev(input0, "class", "categoryinput svelte-1btse7k");
+    			attr_dev(input0, "class", "categoryinput svelte-13rnqx2");
     			attr_dev(input0, "name", "fname");
-    			add_location(input0, file$4, 54, 8, 1675);
-    			add_location(button0, file$4, 55, 8, 1770);
-    			attr_dev(div0, "class", "containerbox svelte-1btse7k");
-    			add_location(div0, file$4, 49, 4, 1468);
-    			add_location(h21, file$4, 59, 8, 1938);
-    			add_location(p2, file$4, 60, 8, 1965);
+    			add_location(input0, file$4, 74, 8, 1984);
+    			attr_dev(button0, "class", "svelte-13rnqx2");
+    			add_location(button0, file$4, 75, 8, 2079);
+    			attr_dev(div0, "class", "containerbox svelte-13rnqx2");
+    			add_location(div0, file$4, 69, 4, 1777);
+    			add_location(h21, file$4, 79, 8, 2247);
+    			attr_dev(p2, "class", "svelte-13rnqx2");
+    			add_location(p2, file$4, 80, 8, 2274);
     			attr_dev(textarea1, "type", "text");
-    			attr_dev(textarea1, "class", "textarea svelte-1btse7k");
+    			attr_dev(textarea1, "class", "textarea svelte-13rnqx2");
     			attr_dev(textarea1, "id", "fname");
     			attr_dev(textarea1, "name", "fname");
-    			add_location(textarea1, file$4, 61, 8, 1986);
-    			add_location(p3, file$4, 62, 8, 2079);
+    			add_location(textarea1, file$4, 81, 8, 2295);
+    			attr_dev(p3, "class", "svelte-13rnqx2");
+    			add_location(p3, file$4, 82, 8, 2388);
     			attr_dev(input1, "type", "text");
-    			attr_dev(input1, "class", "categoryinput svelte-1btse7k");
+    			attr_dev(input1, "class", "categoryinput svelte-13rnqx2");
     			attr_dev(input1, "name", "fname");
-    			add_location(input1, file$4, 63, 8, 2104);
-    			add_location(button1, file$4, 64, 8, 2196);
-    			attr_dev(div1, "class", "containerbox svelte-1btse7k");
-    			add_location(div1, file$4, 58, 4, 1903);
-    			attr_dev(main, "class", "svelte-1btse7k");
-    			add_location(main, file$4, 47, 0, 1433);
+    			add_location(input1, file$4, 83, 8, 2413);
+    			attr_dev(button1, "class", "svelte-13rnqx2");
+    			add_location(button1, file$4, 84, 8, 2505);
+    			attr_dev(div1, "class", "containerbox svelte-13rnqx2");
+    			add_location(div1, file$4, 78, 4, 2212);
+    			attr_dev(main, "class", "svelte-13rnqx2");
+    			add_location(main, file$4, 66, 0, 1744);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, h3);
-    			append_dev(h3, t0);
+    			append_dev(main, br0);
+    			append_dev(main, t0);
+    			append_dev(main, br1);
     			append_dev(main, t1);
     			append_dev(main, div0);
     			append_dev(div0, h20);
@@ -3140,7 +3087,7 @@ var app = (function () {
 
     function instance$6($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
-    	validate_slots("AddQuestions", slots, []);
+    	validate_slots("AddNew", slots, []);
 
     	var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
     		function adopt(value) {
@@ -3192,7 +3139,7 @@ var app = (function () {
     	const writable_props = ["question", "questionCategory", "claim", "claimCategory"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<AddQuestions> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<AddNew> was created with unknown prop '${key}'`);
     	});
 
     	function textarea0_input_handler() {
@@ -3267,7 +3214,7 @@ var app = (function () {
     	];
     }
 
-    class AddQuestions extends SvelteComponentDev {
+    class AddNew extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
 
@@ -3280,49 +3227,49 @@ var app = (function () {
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
-    			tagName: "AddQuestions",
+    			tagName: "AddNew",
     			options,
     			id: create_fragment$6.name
     		});
     	}
 
     	get question() {
-    		throw new Error("<AddQuestions>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	set question(value) {
-    		throw new Error("<AddQuestions>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get questionCategory() {
-    		throw new Error("<AddQuestions>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	set questionCategory(value) {
-    		throw new Error("<AddQuestions>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get claim() {
-    		throw new Error("<AddQuestions>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	set claim(value) {
-    		throw new Error("<AddQuestions>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get claimCategory() {
-    		throw new Error("<AddQuestions>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	set claimCategory(value) {
-    		throw new Error("<AddQuestions>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    		throw new Error("<AddNew>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 
     /* src/App.svelte generated by Svelte v3.26.0 */
     const file$5 = "src/App.svelte";
 
-    // (35:12) <Link to="/">
+    // (60:16) <Link to="/">
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -3345,14 +3292,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(35:12) <Link to=\\\"/\\\">",
+    		source: "(60:16) <Link to=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (36:12) <Link to="about">
+    // (61:16) <Link to="about">
     function create_default_slot_4(ctx) {
     	let t;
 
@@ -3375,14 +3322,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(36:12) <Link to=\\\"about\\\">",
+    		source: "(61:16) <Link to=\\\"about\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (37:12) <Link to="bottlespinn">
+    // (62:16) <Link to="bottlespinn">
     function create_default_slot_3(ctx) {
     	let t;
 
@@ -3405,23 +3352,23 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(37:12) <Link to=\\\"bottlespinn\\\">",
+    		source: "(62:16) <Link to=\\\"bottlespinn\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (38:12) <Link to="addquestion">
+    // (63:16) <Link to="addnew">
     function create_default_slot_2(ctx) {
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("Add Question");
+    			t = text("Add new");
     		},
     		l: function claim(nodes) {
-    			t = claim_text(nodes, "Add Question");
+    			t = claim_text(nodes, "Add new");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
@@ -3435,14 +3382,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(38:12) <Link to=\\\"addquestion\\\">",
+    		source: "(63:16) <Link to=\\\"addnew\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (49:12) <Route path="/">
+    // (74:16) <Route path="/">
     function create_default_slot_1(ctx) {
     	let home;
     	let current;
@@ -3477,14 +3424,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(49:12) <Route path=\\\"/\\\">",
+    		source: "(74:16) <Route path=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (33:4) <Router {url}>
+    // (58:8) <Router {url}>
     function create_default_slot(ctx) {
     	let nav;
     	let link0;
@@ -3534,7 +3481,7 @@ var app = (function () {
 
     	link3 = new Link({
     			props: {
-    				to: "addquestion",
+    				to: "addnew",
     				$$slots: { default: [create_default_slot_2] },
     				$$scope: { ctx }
     			},
@@ -3555,10 +3502,7 @@ var app = (function () {
     		});
 
     	route2 = new Route({
-    			props: {
-    				path: "addquestion",
-    				component: AddQuestions
-    			},
+    			props: { path: "addnew", component: AddNew },
     			$$inline: true
     		});
 
@@ -3593,7 +3537,7 @@ var app = (function () {
     			this.h();
     		},
     		l: function claim(nodes) {
-    			nav = claim_element(nodes, "NAV", {});
+    			nav = claim_element(nodes, "NAV", { class: true });
     			var nav_nodes = children(nav);
     			claim_component(link0.$$.fragment, nav_nodes);
     			t0 = claim_space(nav_nodes);
@@ -3617,8 +3561,9 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(nav, file$5, 33, 8, 774);
-    			add_location(div, file$5, 39, 8, 991);
+    			attr_dev(nav, "class", "nav svelte-ne7kgf");
+    			add_location(nav, file$5, 58, 12, 1381);
+    			add_location(div, file$5, 64, 12, 1624);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
@@ -3719,7 +3664,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(33:4) <Router {url}>",
+    		source: "(58:8) <Router {url}>",
     		ctx
     	});
 
@@ -3728,17 +3673,16 @@ var app = (function () {
 
     function create_fragment$7(ctx) {
     	let main;
-    	let h1;
-    	let t0;
-    	let t1;
-    	let t2;
-    	let t3;
+    	let div;
+    	let img;
+    	let img_src_value;
+    	let t;
     	let router;
     	let current;
 
     	router = new Router({
     			props: {
-    				url: /*url*/ ctx[1],
+    				url: /*url*/ ctx[0],
     				$$slots: { default: [create_default_slot] },
     				$$scope: { ctx }
     			},
@@ -3748,48 +3692,55 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
-    			h1 = element("h1");
-    			t0 = text("Welcome to ");
-    			t1 = text(/*name*/ ctx[0]);
-    			t2 = text("!");
-    			t3 = space();
+    			div = element("div");
+    			img = element("img");
+    			t = space();
     			create_component(router.$$.fragment);
     			this.h();
     		},
     		l: function claim(nodes) {
     			main = claim_element(nodes, "MAIN", { class: true });
     			var main_nodes = children(main);
-    			h1 = claim_element(main_nodes, "H1", { class: true });
-    			var h1_nodes = children(h1);
-    			t0 = claim_text(h1_nodes, "Welcome to ");
-    			t1 = claim_text(h1_nodes, /*name*/ ctx[0]);
-    			t2 = claim_text(h1_nodes, "!");
-    			h1_nodes.forEach(detach_dev);
-    			t3 = claim_space(main_nodes);
-    			claim_component(router.$$.fragment, main_nodes);
+    			div = claim_element(main_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+
+    			img = claim_element(div_nodes, "IMG", {
+    				class: true,
+    				src: true,
+    				height: true,
+    				alt: true,
+    				id: true
+    			});
+
+    			t = claim_space(div_nodes);
+    			claim_component(router.$$.fragment, div_nodes);
+    			div_nodes.forEach(detach_dev);
     			main_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(h1, "class", "svelte-117phcx");
-    			add_location(h1, file$5, 31, 4, 719);
-    			attr_dev(main, "class", "svelte-117phcx");
-    			add_location(main, file$5, 30, 0, 708);
+    			attr_dev(img, "class", "logoimg svelte-ne7kgf");
+    			if (img.src !== (img_src_value = "tmpLogo.png")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "height", "100px");
+    			attr_dev(img, "alt", "logo");
+    			attr_dev(img, "id", "myLogo");
+    			add_location(img, file$5, 56, 8, 1266);
+    			attr_dev(div, "class", "headercontainer");
+    			add_location(div, file$5, 55, 4, 1228);
+    			attr_dev(main, "class", "svelte-ne7kgf");
+    			add_location(main, file$5, 54, 0, 1217);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, h1);
-    			append_dev(h1, t0);
-    			append_dev(h1, t1);
-    			append_dev(h1, t2);
-    			append_dev(main, t3);
-    			mount_component(router, main, null);
+    			append_dev(main, div);
+    			append_dev(div, img);
+    			append_dev(div, t);
+    			mount_component(router, div, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!current || dirty & /*name*/ 1) set_data_dev(t1, /*name*/ ctx[0]);
     			const router_changes = {};
-    			if (dirty & /*url*/ 2) router_changes.url = /*url*/ ctx[1];
+    			if (dirty & /*url*/ 1) router_changes.url = /*url*/ ctx[0];
 
     			if (dirty & /*$$scope*/ 4) {
     				router_changes.$$scope = { dirty, ctx };
@@ -3835,8 +3786,8 @@ var app = (function () {
     	});
 
     	$$self.$$set = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    		if ("url" in $$props) $$invalidate(1, url = $$props.url);
+    		if ("name" in $$props) $$invalidate(1, name = $$props.name);
+    		if ("url" in $$props) $$invalidate(0, url = $$props.url);
     	};
 
     	$$self.$capture_state = () => ({
@@ -3847,26 +3798,26 @@ var app = (function () {
     		Home,
     		About,
     		Bottlespinn,
-    		AddQuestions,
+    		AddNew,
     		url
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("name" in $$props) $$invalidate(0, name = $$props.name);
-    		if ("url" in $$props) $$invalidate(1, url = $$props.url);
+    		if ("name" in $$props) $$invalidate(1, name = $$props.name);
+    		if ("url" in $$props) $$invalidate(0, url = $$props.url);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [name, url];
+    	return [url, name];
     }
 
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$7, create_fragment$7, safe_not_equal, { name: 0, url: 1 });
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, { name: 1, url: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -3878,7 +3829,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*name*/ ctx[0] === undefined && !("name" in props)) {
+    		if (/*name*/ ctx[1] === undefined && !("name" in props)) {
     			console.warn("<App> was created without expected prop 'name'");
     		}
     	}
