@@ -1,5 +1,4 @@
 <script lang="ts">
-    let pageName = 'Home Page';
 </script>
 
 <style>
@@ -10,22 +9,18 @@
         margin: 0 auto;
     }
 
-    h1 {
-        color: #ff3e00;
-        text-transform: uppercase;
-        font-size: 4em;
-        font-weight: 100;
-    }
-
     @media (min-width: 640px) {
         main {
             max-width: none;
         }
     }
+    p {
+        color: #277bab;
+        margin-top: 5rem;
+        margin-left: -8rem;
+    }
 </style>
 
 <main>
-    <h3>{pageName}!</h3>
-    <p>Welcome this is my <b>{pageName}</b></p>
-    <p>this site is under construction</p>
+    <p>This site is under construction, check out 'Add new' and bottlespinn</p>
 </main>
