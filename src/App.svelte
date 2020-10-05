@@ -1,10 +1,10 @@
 <script lang="ts">
-    export let name: string;
     import { Router, Route, Link } from 'svelte-routing';
     import Home from './pages/Home.svelte';
     import About from './pages/About.svelte';
     import Bottlespinn from './pages/Bottlespinn.svelte';
     import AddNew from './pages/admin/AddNew.svelte';
+    import NewGame from './pages/game/newGame.svelte';
     export let url: string = ''; //This property is necessary declare to avoid ignore the Router
 </script>
 
@@ -62,11 +62,13 @@
                 <Link to="about">About</Link>
                 <Link to="bottlespinn">Bottlespinn</Link>
                 <Link to="addnew">Add new</Link>
+                <Link to="newgame">New game</Link>
             </nav>
             <div>
                 <Route path="about" component={About} />
                 <Route path="bottlespinn" component={Bottlespinn} />
                 <Route path="addnew" component={AddNew} />
+                <Route path="newgame" component={NewGame} />
                 <!--for now the router just support case sensitive,
         one workaround colud be add two time the route
         Example.
