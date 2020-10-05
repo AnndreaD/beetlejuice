@@ -4,8 +4,9 @@ const apiBaseUrl = 'http://localhost:3000/';
 //TODO move to routes file
 export const questionUrl = apiBaseUrl + 'question';
 export const claimUrl = apiBaseUrl + 'claim';
-export const category = apiBaseUrl + 'category';
-export const language = apiBaseUrl + 'language';
+export const categoryUrl = apiBaseUrl + 'category';
+export const languageUrl = apiBaseUrl + 'language';
+export const randomquestion = questionUrl + '/randomquantity/';
 
 export async function doPost(url: string, body: object) {
     const res = await fetch(url, {
@@ -34,7 +35,7 @@ export async function doGet(url: string) {
 
 //TODO create params function
 
-export async function doGetWithParams(url: string, params: string) {
+export async function doGetWithParams(url: string, params: string | number) {
     const res = await fetch(url + params, {
         method: 'GET',
         headers: {

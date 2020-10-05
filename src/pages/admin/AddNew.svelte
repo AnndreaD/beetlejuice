@@ -1,14 +1,50 @@
 <script lang="ts">
     // POC ->  success flag, some px to rem  etc, clear on post
-    import { doPost, questionUrl, claimUrl } from '../../ApiUtils';
+    import { doPost, questionUrl, claimUrl, doGet, categoryUrl, languageUrl } from '../../ApiUtils';
+    import { onMount } from 'svelte';
+    import Select from 'svelte-select';
+    import type { dropdownItems } from '../../types';
 
-    export let question: string = '';
-    export let questionCategory: string = '';
+    let question: string = '';
+    let questionCategory: dropdownItems = undefined;
+    let questionLanguage: dropdownItems = undefined;
 
-    export let claim: string = '';
-    export let claimCategory: string = '';
+    let claim: string = '';
+    let claimCategory: dropdownItems = undefined;
+    let claimLanguage: dropdownItems = undefined;
 
-    async function postQuestion() {}
+    let categoryItems = [];
+    let languageItems = [];
+
+    onMount(async () => {
+        doGet(categoryUrl).then((c) =>
+            c.map((i) => (categoryItems = [...categoryItems, { value: i.id, label: i.name }]))
+        );
+        doGet(languageUrl).then((c) =>
+            c.map((i) => (languageItems = [...languageItems, { value: i.id, label: i.name }]))
+        );
+    });
+
+    function reset(isQuestion: boolean) {
+        if (isQuestion) {
+            question = '';
+            questionLanguage = undefined;
+            questionCategory = undefined;
+        } else {
+            claim = '';
+            claimLanguage = undefined;
+            claimCategory = undefined;
+        }
+    }
+
+    function onPostedDone(url: string, isQuestion: boolean) {
+        doPost(url, {
+            text: isQuestion ? question : claim,
+            category: isQuestion ? questionCategory.value : claimCategory.value,
+            language: isQuestion ? questionLanguage.value : claimLanguage.value,
+        });
+        reset(isQuestion);
+    }
 </script>
 
 <style>
@@ -66,8 +102,16 @@
         <p>text:</p>
         <textarea bind:value={question} type="text" class="textarea" id="fname" name="fname" />
         <p>category:</p>
-        <input bind:value={questionCategory} type="text" class="categoryinput" name="fname" />
-        <button on:click={() => doPost(questionUrl, { text: question, category: questionCategory })}>Enter question</button>
+        {#if categoryItems.length > 0}
+            <Select items={categoryItems} bind:selectedValue={questionCategory} showIndicator="true" />
+        {/if}
+        <p>language:</p>
+        {#if languageItems.length > 0}
+            <Select items={languageItems} bind:selectedValue={questionLanguage} showIndicator="true" />
+        {/if}
+        <br />
+
+        <button on:click={() => onPostedDone(questionUrl, true)}>Enter question</button>
     </div>
 
     <div class="containerbox">
@@ -75,7 +119,15 @@
         <p>text:</p>
         <textarea bind:value={claim} type="text" class="textarea" id="fname" name="fname" />
         <p>category:</p>
-        <input bind:value={claimCategory} type="text" class="categoryinput" name="fname" />
-        <button on:click={() => doPost(claimUrl, { text: claim, category: claimCategory })}>Enter Claim</button>
+        {#if categoryItems.length > 0}
+            <Select items={categoryItems} bind:selectedValue={claimCategory} showIndicator="true" />
+        {/if}
+        <p>language:</p>
+        {#if languageItems.length > 0}
+            <Select items={languageItems} bind:selectedValue={claimLanguage} showIndicator="true" />
+        {/if}
+        <br />
+
+        <button on:click={() => onPostedDone(claimUrl, false)}>Enter Claim</button>
     </div>
 </main>

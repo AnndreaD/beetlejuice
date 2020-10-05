@@ -1,15 +1,18 @@
 <script lang="ts">
-    import { questionUrl, claimUrl, doGet } from '../../ApiUtils';
-    import type { QuestionObject } from '../../types';
+    import { questionUrl, claimUrl, doGet, doGetWithParams, randomquestion } from '../../ApiUtils';
+    import type { ClaimObject, QuestionObject } from '../../types';
 
-    const obj = { text: '', category: '' };
+    let questions: QuestionObject[] = [];
+    let claims: ClaimObject[] = [];
 
-    export let questions: QuestionObject[] = [];
-
-    export let claims: QuestionObject[] = [];
+    let quantityQuestion: number = 10;
+    let quantityClaim: number = 10;
 
     function getQuestions() {
-        doGet(questionUrl).then((qs) => (questions = qs));
+        doGetWithParams(randomquestion, quantityQuestion).then((qs) => (questions = qs));
+    }
+    function getClaims() {
+        doGet(claimUrl).then((qs) => (claims = qs));
     }
 </script>
 
@@ -47,10 +50,13 @@
     <h3>Game page</h3>
     ...under construction <br />
     <br />
+    <input bind:value={quantityQuestion} type="number" class="quantityquestion" name="fname" />
     <button on:click={getQuestions}>Get Questions</button>
-    <button on:click={getQuestions}>Get Claims</button>
+    <input bind:value={quantityClaim} type="number" class="quantityclaim" name="fname" />
+    <button on:click={getClaims}>Get Claims</button>
     <div>
         {#if questions.length > 0}
+            <h3>questions</h3>
             {#each questions as qs}
                 <li>{qs.text}</li>
             {/each}
@@ -59,6 +65,7 @@
 
     <div>
         {#if claims.length > 0}
+            <h3>claims</h3>
             {#each claims as cl}
                 <li>{cl.text}</li>
             {/each}
