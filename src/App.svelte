@@ -5,7 +5,9 @@
     import Bottlespinn from './pages/Bottlespinn.svelte';
     import AddNew from './pages/admin/AddNew.svelte';
     import NewGame from './pages/game/newGame.svelte';
+    import Game from './pages/game/Game.svelte';
     export let url: string = ''; //This property is necessary declare to avoid ignore the Router
+
 </script>
 
 <style>
@@ -47,7 +49,7 @@
     :global(a) {
         background: #277bab;
         color: white !important;
-        border-radius: 10px;
+        border-radius: 4px;
         margin: 0.75rem;
         padding: 0.25rem 0.75rem 0.25rem 0.75rem;
     }
@@ -69,6 +71,7 @@
                 <Route path="bottlespinn" component={Bottlespinn} />
                 <Route path="addnew" component={AddNew} />
                 <Route path="newgame" component={NewGame} />
+                <Route path="game" component={Game} />
                 <!--for now the router just support case sensitive,
         one workaround colud be add two time the route
         Example.

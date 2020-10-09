@@ -40,7 +40,7 @@
         margin-left: 25%;
         background: #f0ab7a;
         color: #277bab;
-        border-radius: 10px;
+        border-radius: 4px;
         border: none;
         font-weight: bold;
     }

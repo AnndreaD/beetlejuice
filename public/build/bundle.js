@@ -2606,46 +2606,70 @@ var app = (function () {
 
     function create_fragment$4(ctx) {
     	let main;
-    	let p;
+    	let br0;
     	let t0;
-    	let b;
+    	let br1;
     	let t1;
+    	let h2;
+    	let t2;
+    	let t3;
+    	let h3;
+    	let t4;
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			p = element("p");
-    			t0 = text("Welcome this is my ");
-    			b = element("b");
-    			t1 = text(/*pageName*/ ctx[0]);
+    			br0 = element("br");
+    			t0 = space();
+    			br1 = element("br");
+    			t1 = space();
+    			h2 = element("h2");
+    			t2 = text("Welcome to beetlejuice drinking game app!");
+    			t3 = space();
+    			h3 = element("h3");
+    			t4 = text("This is just for fun, but i you are looking to contribute please feel free to contact us");
     			this.h();
     		},
     		l: function claim(nodes) {
     			main = claim_element(nodes, "MAIN", { class: true });
     			var main_nodes = children(main);
-    			p = claim_element(main_nodes, "P", {});
-    			var p_nodes = children(p);
-    			t0 = claim_text(p_nodes, "Welcome this is my ");
-    			b = claim_element(p_nodes, "B", {});
-    			var b_nodes = children(b);
-    			t1 = claim_text(b_nodes, /*pageName*/ ctx[0]);
-    			b_nodes.forEach(detach_dev);
-    			p_nodes.forEach(detach_dev);
+    			br0 = claim_element(main_nodes, "BR", {});
+    			t0 = claim_space(main_nodes);
+    			br1 = claim_element(main_nodes, "BR", {});
+    			t1 = claim_space(main_nodes);
+    			h2 = claim_element(main_nodes, "H2", { class: true });
+    			var h2_nodes = children(h2);
+    			t2 = claim_text(h2_nodes, "Welcome to beetlejuice drinking game app!");
+    			h2_nodes.forEach(detach_dev);
+    			t3 = claim_space(main_nodes);
+    			h3 = claim_element(main_nodes, "H3", { class: true });
+    			var h3_nodes = children(h3);
+    			t4 = claim_text(h3_nodes, "This is just for fun, but i you are looking to contribute please feel free to contact us");
+    			h3_nodes.forEach(detach_dev);
     			main_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(b, file$2, 19, 26, 319);
-    			add_location(p, file$2, 19, 4, 297);
-    			attr_dev(main, "class", "svelte-92w3al");
-    			add_location(main, file$2, 18, 0, 286);
+    			add_location(br0, file$2, 27, 4, 397);
+    			add_location(br1, file$2, 28, 4, 408);
+    			attr_dev(h2, "class", "svelte-qpbgr7");
+    			add_location(h2, file$2, 29, 4, 419);
+    			attr_dev(h3, "class", "svelte-qpbgr7");
+    			add_location(h3, file$2, 30, 4, 474);
+    			attr_dev(main, "class", "svelte-qpbgr7");
+    			add_location(main, file$2, 26, 0, 386);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, p);
-    			append_dev(p, t0);
-    			append_dev(p, b);
-    			append_dev(b, t1);
+    			append_dev(main, br0);
+    			append_dev(main, t0);
+    			append_dev(main, br1);
+    			append_dev(main, t1);
+    			append_dev(main, h2);
+    			append_dev(h2, t2);
+    			append_dev(main, t3);
+    			append_dev(main, h3);
+    			append_dev(h3, t4);
     		},
     		p: noop,
     		i: noop,
@@ -2666,27 +2690,16 @@ var app = (function () {
     	return block;
     }
 
-    function instance$4($$self, $$props, $$invalidate) {
+    function instance$4($$self, $$props) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("About", slots, []);
-    	let pageName = "About Page";
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<About> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ pageName });
-
-    	$$self.$inject_state = $$props => {
-    		if ("pageName" in $$props) $$invalidate(0, pageName = $$props.pageName);
-    	};
-
-    	if ($$props && "$$inject" in $$props) {
-    		$$self.$inject_state($$props.$$inject);
-    	}
-
-    	return [pageName];
+    	return [];
     }
 
     class About extends SvelteComponentDev {
@@ -2733,8 +2746,8 @@ var app = (function () {
     			if (img.src !== (img_src_value = "bajablast.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background");
     			attr_dev(img, "id", "myimage");
-    			attr_dev(img, "class", "svelte-2ekc46");
-    			add_location(img, file$3, 59, 12, 1306);
+    			attr_dev(img, "class", "svelte-1kkmkkj");
+    			add_location(img, file$3, 59, 12, 1305);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -2784,11 +2797,11 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(img, "class", "centered svelte-2ekc46");
+    			attr_dev(img, "class", "centered svelte-1kkmkkj");
     			if (img.src !== (img_src_value = "bajablast.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background");
     			attr_dev(img, "id", "myimage");
-    			add_location(img, file$3, 57, 12, 1174);
+    			add_location(img, file$3, 57, 12, 1173);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -2874,13 +2887,13 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(button, "class", "svelte-2ekc46");
-    			add_location(button, file$3, 53, 8, 1051);
-    			add_location(br0, file$3, 54, 8, 1114);
-    			add_location(br1, file$3, 55, 8, 1129);
-    			attr_dev(div, "class", "bottlecontainer svelte-2ekc46");
-    			add_location(div, file$3, 52, 4, 1013);
-    			add_location(main, file$3, 51, 0, 1002);
+    			attr_dev(button, "class", "svelte-1kkmkkj");
+    			add_location(button, file$3, 53, 8, 1050);
+    			add_location(br0, file$3, 54, 8, 1113);
+    			add_location(br1, file$3, 55, 8, 1128);
+    			attr_dev(div, "class", "bottlecontainer svelte-1kkmkkj");
+    			add_location(div, file$3, 52, 4, 1012);
+    			add_location(main, file$3, 51, 0, 1001);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
@@ -3016,7 +3029,13 @@ var app = (function () {
     const claimUrl = apiBaseUrl + 'claim';
     const categoryUrl = apiBaseUrl + 'category';
     const languageUrl = apiBaseUrl + 'language';
-    const randomquestion = questionUrl + '/randomquantity/';
+    const randomquestion = questionUrl + '/randomquantity';
+    const randomclaim = claimUrl + '/randomquantity';
+    function arrayToParamstring(paramarray) {
+        let returnstring = '';
+        paramarray.map((i) => (returnstring = returnstring + '/' + i));
+        return returnstring;
+    }
     async function doPost(url, body) {
         const res = await fetch(url, {
             method: 'POST',
@@ -8682,44 +8701,44 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(br0, file$a, 95, 4, 2733);
-    			add_location(br1, file$a, 96, 4, 2744);
-    			add_location(h20, file$a, 98, 8, 2790);
-    			attr_dev(p0, "class", "svelte-13rnqx2");
-    			add_location(p0, file$a, 99, 8, 2820);
+    			add_location(br0, file$a, 95, 4, 2732);
+    			add_location(br1, file$a, 96, 4, 2743);
+    			add_location(h20, file$a, 98, 8, 2789);
+    			attr_dev(p0, "class", "svelte-x6npxz");
+    			add_location(p0, file$a, 99, 8, 2819);
     			attr_dev(textarea0, "type", "text");
-    			attr_dev(textarea0, "class", "textarea svelte-13rnqx2");
+    			attr_dev(textarea0, "class", "textarea svelte-x6npxz");
     			attr_dev(textarea0, "id", "fname");
     			attr_dev(textarea0, "name", "fname");
-    			add_location(textarea0, file$a, 100, 8, 2841);
-    			attr_dev(p1, "class", "svelte-13rnqx2");
-    			add_location(p1, file$a, 101, 8, 2937);
-    			attr_dev(p2, "class", "svelte-13rnqx2");
-    			add_location(p2, file$a, 105, 8, 3119);
-    			add_location(br2, file$a, 109, 8, 3301);
-    			attr_dev(button0, "class", "svelte-13rnqx2");
-    			add_location(button0, file$a, 111, 8, 3317);
-    			attr_dev(div0, "class", "containerbox svelte-13rnqx2");
-    			add_location(div0, file$a, 97, 4, 2755);
-    			add_location(h21, file$a, 115, 8, 3449);
-    			attr_dev(p3, "class", "svelte-13rnqx2");
-    			add_location(p3, file$a, 116, 8, 3476);
+    			add_location(textarea0, file$a, 100, 8, 2840);
+    			attr_dev(p1, "class", "svelte-x6npxz");
+    			add_location(p1, file$a, 101, 8, 2936);
+    			attr_dev(p2, "class", "svelte-x6npxz");
+    			add_location(p2, file$a, 105, 8, 3118);
+    			add_location(br2, file$a, 109, 8, 3300);
+    			attr_dev(button0, "class", "svelte-x6npxz");
+    			add_location(button0, file$a, 111, 8, 3316);
+    			attr_dev(div0, "class", "containerbox svelte-x6npxz");
+    			add_location(div0, file$a, 97, 4, 2754);
+    			add_location(h21, file$a, 115, 8, 3448);
+    			attr_dev(p3, "class", "svelte-x6npxz");
+    			add_location(p3, file$a, 116, 8, 3475);
     			attr_dev(textarea1, "type", "text");
-    			attr_dev(textarea1, "class", "textarea svelte-13rnqx2");
+    			attr_dev(textarea1, "class", "textarea svelte-x6npxz");
     			attr_dev(textarea1, "id", "fname");
     			attr_dev(textarea1, "name", "fname");
-    			add_location(textarea1, file$a, 117, 8, 3497);
-    			attr_dev(p4, "class", "svelte-13rnqx2");
-    			add_location(p4, file$a, 118, 8, 3590);
-    			attr_dev(p5, "class", "svelte-13rnqx2");
-    			add_location(p5, file$a, 122, 8, 3769);
-    			add_location(br3, file$a, 126, 8, 3948);
-    			attr_dev(button1, "class", "svelte-13rnqx2");
-    			add_location(button1, file$a, 128, 8, 3964);
-    			attr_dev(div1, "class", "containerbox svelte-13rnqx2");
-    			add_location(div1, file$a, 114, 4, 3414);
-    			attr_dev(main, "class", "svelte-13rnqx2");
-    			add_location(main, file$a, 94, 0, 2722);
+    			add_location(textarea1, file$a, 117, 8, 3496);
+    			attr_dev(p4, "class", "svelte-x6npxz");
+    			add_location(p4, file$a, 118, 8, 3589);
+    			attr_dev(p5, "class", "svelte-x6npxz");
+    			add_location(p5, file$a, 122, 8, 3768);
+    			add_location(br3, file$a, 126, 8, 3947);
+    			attr_dev(button1, "class", "svelte-x6npxz");
+    			add_location(button1, file$a, 128, 8, 3963);
+    			attr_dev(div1, "class", "containerbox svelte-x6npxz");
+    			add_location(div1, file$a, 114, 4, 3413);
+    			attr_dev(main, "class", "svelte-x6npxz");
+    			add_location(main, file$a, 94, 0, 2721);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
@@ -9121,110 +9140,75 @@ var app = (function () {
     	}
     }
 
-    /* src/pages/game/newGame.svelte generated by Svelte v3.26.0 */
+    function random(arrayLength) {
+        let rty = Math.floor(Math.random() * arrayLength);
+        console.log(rty, arrayLength);
+        return rty;
+    }
+
+    /* src/pages/game/Game.svelte generated by Svelte v3.26.0 */
 
     const { console: console_1$1 } = globals;
+    const file$b = "src/pages/game/Game.svelte";
 
-    const file$b = "src/pages/game/newGame.svelte";
-
-    function get_each_context$3(ctx, list, i) {
-    	const child_ctx = ctx.slice();
-    	child_ctx[8] = list[i];
-    	return child_ctx;
-    }
-
-    function get_each_context_1(ctx, list, i) {
-    	const child_ctx = ctx.slice();
-    	child_ctx[11] = list[i];
-    	return child_ctx;
-    }
-
-    // (55:8) {#if questions.length > 0}
+    // (110:8) {#if !gameEnded}
     function create_if_block_1$4(ctx) {
-    	let h3;
-    	let t0;
-    	let t1;
-    	let each_1_anchor;
-    	let each_value_1 = /*questions*/ ctx[0];
-    	validate_each_argument(each_value_1);
-    	let each_blocks = [];
-
-    	for (let i = 0; i < each_value_1.length; i += 1) {
-    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
-    	}
+    	let t;
+    	let if_block1_anchor;
+    	let if_block0 = !/*gameStarted*/ ctx[0] && create_if_block_3$3(ctx);
+    	let if_block1 = !!/*gameStarted*/ ctx[0] && create_if_block_2$3(ctx);
 
     	const block = {
     		c: function create() {
-    			h3 = element("h3");
-    			t0 = text("questions");
-    			t1 = space();
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
-    			}
-
-    			each_1_anchor = empty();
-    			this.h();
+    			if (if_block0) if_block0.c();
+    			t = space();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
     		},
     		l: function claim(nodes) {
-    			h3 = claim_element(nodes, "H3", { class: true });
-    			var h3_nodes = children(h3);
-    			t0 = claim_text(h3_nodes, "questions");
-    			h3_nodes.forEach(detach_dev);
-    			t1 = claim_space(nodes);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].l(nodes);
-    			}
-
-    			each_1_anchor = empty();
-    			this.h();
-    		},
-    		h: function hydrate() {
-    			attr_dev(h3, "class", "svelte-qfz70i");
-    			add_location(h3, file$b, 55, 12, 1341);
+    			if (if_block0) if_block0.l(nodes);
+    			t = claim_space(nodes);
+    			if (if_block1) if_block1.l(nodes);
+    			if_block1_anchor = empty();
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, h3, anchor);
-    			append_dev(h3, t0);
-    			insert_dev(target, t1, anchor);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(target, anchor);
-    			}
-
-    			insert_dev(target, each_1_anchor, anchor);
+    			if (if_block0) if_block0.m(target, anchor);
+    			insert_dev(target, t, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*questions*/ 1) {
-    				each_value_1 = /*questions*/ ctx[0];
-    				validate_each_argument(each_value_1);
-    				let i;
-
-    				for (i = 0; i < each_value_1.length; i += 1) {
-    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
-
-    					if (each_blocks[i]) {
-    						each_blocks[i].p(child_ctx, dirty);
-    					} else {
-    						each_blocks[i] = create_each_block_1(child_ctx);
-    						each_blocks[i].c();
-    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
-    					}
+    			if (!/*gameStarted*/ ctx[0]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_3$3(ctx);
+    					if_block0.c();
+    					if_block0.m(t.parentNode, t);
     				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
 
-    				for (; i < each_blocks.length; i += 1) {
-    					each_blocks[i].d(1);
+    			if (!!/*gameStarted*/ ctx[0]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_2$3(ctx);
+    					if_block1.c();
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
     				}
-
-    				each_blocks.length = each_value_1.length;
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(h3);
-    			if (detaching) detach_dev(t1);
-    			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(each_1_anchor);
+    			if (if_block0) if_block0.d(detaching);
+    			if (detaching) detach_dev(t);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(if_block1_anchor);
     		}
     	};
 
@@ -9232,144 +9216,202 @@ var app = (function () {
     		block,
     		id: create_if_block_1$4.name,
     		type: "if",
-    		source: "(55:8) {#if questions.length > 0}",
+    		source: "(110:8) {#if !gameEnded}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:12) {#each questions as qs}
-    function create_each_block_1(ctx) {
-    	let li;
-    	let t_value = /*qs*/ ctx[11].text + "";
+    // (111:12) {#if !gameStarted}
+    function create_if_block_3$3(ctx) {
+    	let button;
     	let t;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
-    			li = element("li");
-    			t = text(t_value);
+    			button = element("button");
+    			t = text("start game");
     			this.h();
     		},
     		l: function claim(nodes) {
-    			li = claim_element(nodes, "LI", {});
-    			var li_nodes = children(li);
-    			t = claim_text(li_nodes, t_value);
-    			li_nodes.forEach(detach_dev);
+    			button = claim_element(nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+    			t = claim_text(button_nodes, "start game");
+    			button_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(li, file$b, 57, 16, 1412);
+    			attr_dev(button, "class", "svelte-179pou2");
+    			add_location(button, file$b, 110, 30, 3209);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, li, anchor);
-    			append_dev(li, t);
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*setGameStarted*/ ctx[5], false, false, false);
+    				mounted = true;
+    			}
     		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*questions*/ 1 && t_value !== (t_value = /*qs*/ ctx[11].text + "")) set_data_dev(t, t_value);
-    		},
+    		p: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(li);
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block_1.name,
-    		type: "each",
-    		source: "(57:12) {#each questions as qs}",
+    		id: create_if_block_3$3.name,
+    		type: "if",
+    		source: "(111:12) {#if !gameStarted}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:8) {#if claims.length > 0}
-    function create_if_block$6(ctx) {
-    	let h3;
+    // (112:12) {#if !!gameStarted}
+    function create_if_block_2$3(ctx) {
+    	let h2;
     	let t0;
     	let t1;
-    	let each_1_anchor;
-    	let each_value = /*claims*/ ctx[1];
-    	validate_each_argument(each_value);
-    	let each_blocks = [];
-
-    	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
-    	}
+    	let h3;
+    	let t2;
+    	let t3;
+    	let button;
+    	let t4;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
-    			h3 = element("h3");
-    			t0 = text("claims");
+    			h2 = element("h2");
+    			t0 = text(/*currentTitle*/ ctx[3]);
     			t1 = space();
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
-    			}
-
-    			each_1_anchor = empty();
+    			h3 = element("h3");
+    			t2 = text(/*currentText*/ ctx[2]);
+    			t3 = space();
+    			button = element("button");
+    			t4 = text("next");
     			this.h();
     		},
     		l: function claim(nodes) {
+    			h2 = claim_element(nodes, "H2", { class: true });
+    			var h2_nodes = children(h2);
+    			t0 = claim_text(h2_nodes, /*currentTitle*/ ctx[3]);
+    			h2_nodes.forEach(detach_dev);
+    			t1 = claim_space(nodes);
     			h3 = claim_element(nodes, "H3", { class: true });
     			var h3_nodes = children(h3);
-    			t0 = claim_text(h3_nodes, "claims");
+    			t2 = claim_text(h3_nodes, /*currentText*/ ctx[2]);
     			h3_nodes.forEach(detach_dev);
-    			t1 = claim_space(nodes);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].l(nodes);
-    			}
-
-    			each_1_anchor = empty();
+    			t3 = claim_space(nodes);
+    			button = claim_element(nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+    			t4 = claim_text(button_nodes, "next");
+    			button_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(h3, "class", "svelte-qfz70i");
-    			add_location(h3, file$b, 64, 12, 1531);
+    			attr_dev(h2, "class", "svelte-179pou2");
+    			add_location(h2, file$b, 112, 16, 3317);
+    			attr_dev(h3, "class", "svelte-179pou2");
+    			add_location(h3, file$b, 113, 16, 3357);
+    			attr_dev(button, "class", "svelte-179pou2");
+    			add_location(button, file$b, 114, 16, 3396);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, h3, anchor);
-    			append_dev(h3, t0);
+    			insert_dev(target, h2, anchor);
+    			append_dev(h2, t0);
     			insert_dev(target, t1, anchor);
+    			insert_dev(target, h3, anchor);
+    			append_dev(h3, t2);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t4);
 
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(target, anchor);
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*getNext*/ ctx[4], false, false, false);
+    				mounted = true;
     			}
-
-    			insert_dev(target, each_1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*claims*/ 2) {
-    				each_value = /*claims*/ ctx[1];
-    				validate_each_argument(each_value);
-    				let i;
-
-    				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$3(ctx, each_value, i);
-
-    					if (each_blocks[i]) {
-    						each_blocks[i].p(child_ctx, dirty);
-    					} else {
-    						each_blocks[i] = create_each_block$3(child_ctx);
-    						each_blocks[i].c();
-    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
-    					}
-    				}
-
-    				for (; i < each_blocks.length; i += 1) {
-    					each_blocks[i].d(1);
-    				}
-
-    				each_blocks.length = each_value.length;
-    			}
+    			if (dirty & /*currentTitle*/ 8) set_data_dev(t0, /*currentTitle*/ ctx[3]);
+    			if (dirty & /*currentText*/ 4) set_data_dev(t2, /*currentText*/ ctx[2]);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(h3);
+    			if (detaching) detach_dev(h2);
     			if (detaching) detach_dev(t1);
-    			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(each_1_anchor);
+    			if (detaching) detach_dev(h3);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$3.name,
+    		type: "if",
+    		source: "(112:12) {#if !!gameStarted}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (119:8) {#if gameEnded}
+    function create_if_block$6(ctx) {
+    	let h2;
+    	let t0;
+    	let t1;
+    	let h3;
+    	let t2;
+
+    	const block = {
+    		c: function create() {
+    			h2 = element("h2");
+    			t0 = text("GAME OVER");
+    			t1 = space();
+    			h3 = element("h3");
+    			t2 = text("the game is now finished, but feel free to start a new one.");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			h2 = claim_element(nodes, "H2", { class: true });
+    			var h2_nodes = children(h2);
+    			t0 = claim_text(h2_nodes, "GAME OVER");
+    			h2_nodes.forEach(detach_dev);
+    			t1 = claim_space(nodes);
+    			h3 = claim_element(nodes, "H3", { class: true });
+    			var h3_nodes = children(h3);
+    			t2 = claim_text(h3_nodes, "the game is now finished, but feel free to start a new one.");
+    			h3_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(h2, "class", "svelte-179pou2");
+    			add_location(h2, file$b, 119, 12, 3506);
+    			attr_dev(h3, "class", "svelte-179pou2");
+    			add_location(h3, file$b, 120, 12, 3537);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h2, anchor);
+    			append_dev(h2, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, h3, anchor);
+    			append_dev(h3, t2);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(h3);
     		}
     	};
 
@@ -9377,52 +9419,7 @@ var app = (function () {
     		block,
     		id: create_if_block$6.name,
     		type: "if",
-    		source: "(64:8) {#if claims.length > 0}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (66:12) {#each claims as cl}
-    function create_each_block$3(ctx) {
-    	let li;
-    	let t_value = /*cl*/ ctx[8].text + "";
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			li = element("li");
-    			t = text(t_value);
-    			this.h();
-    		},
-    		l: function claim(nodes) {
-    			li = claim_element(nodes, "LI", {});
-    			var li_nodes = children(li);
-    			t = claim_text(li_nodes, t_value);
-    			li_nodes.forEach(detach_dev);
-    			this.h();
-    		},
-    		h: function hydrate() {
-    			add_location(li, file$b, 66, 16, 1596);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, li, anchor);
-    			append_dev(li, t);
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*claims*/ 2 && t_value !== (t_value = /*cl*/ ctx[8].text + "")) set_data_dev(t, t_value);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(li);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_each_block$3.name,
-    		type: "each",
-    		source: "(66:12) {#each claims as cl}",
+    		source: "(119:8) {#if gameEnded}",
     		ctx
     	});
 
@@ -9431,203 +9428,64 @@ var app = (function () {
 
     function create_fragment$d(ctx) {
     	let main;
-    	let br0;
-    	let t0;
-    	let br1;
-    	let t1;
-    	let h3;
-    	let t2;
-    	let t3;
-    	let br2;
-    	let t4;
-    	let br3;
-    	let t5;
-    	let input0;
-    	let t6;
-    	let button0;
-    	let t7;
-    	let t8;
-    	let input1;
-    	let t9;
-    	let button1;
-    	let t10;
-    	let t11;
-    	let div0;
-    	let t12;
-    	let div1;
-    	let mounted;
-    	let dispose;
-    	let if_block0 = /*questions*/ ctx[0].length > 0 && create_if_block_1$4(ctx);
-    	let if_block1 = /*claims*/ ctx[1].length > 0 && create_if_block$6(ctx);
+    	let div;
+    	let t;
+    	let if_block0 = !/*gameEnded*/ ctx[1] && create_if_block_1$4(ctx);
+    	let if_block1 = /*gameEnded*/ ctx[1] && create_if_block$6(ctx);
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			br0 = element("br");
-    			t0 = space();
-    			br1 = element("br");
-    			t1 = space();
-    			h3 = element("h3");
-    			t2 = text("Game page");
-    			t3 = text("\n    ...under construction ");
-    			br2 = element("br");
-    			t4 = space();
-    			br3 = element("br");
-    			t5 = space();
-    			input0 = element("input");
-    			t6 = space();
-    			button0 = element("button");
-    			t7 = text("Get Questions");
-    			t8 = space();
-    			input1 = element("input");
-    			t9 = space();
-    			button1 = element("button");
-    			t10 = text("Get Claims");
-    			t11 = space();
-    			div0 = element("div");
+    			div = element("div");
     			if (if_block0) if_block0.c();
-    			t12 = space();
-    			div1 = element("div");
+    			t = space();
     			if (if_block1) if_block1.c();
     			this.h();
     		},
     		l: function claim(nodes) {
     			main = claim_element(nodes, "MAIN", { class: true });
     			var main_nodes = children(main);
-    			br0 = claim_element(main_nodes, "BR", {});
-    			t0 = claim_space(main_nodes);
-    			br1 = claim_element(main_nodes, "BR", {});
-    			t1 = claim_space(main_nodes);
-    			h3 = claim_element(main_nodes, "H3", { class: true });
-    			var h3_nodes = children(h3);
-    			t2 = claim_text(h3_nodes, "Game page");
-    			h3_nodes.forEach(detach_dev);
-    			t3 = claim_text(main_nodes, "\n    ...under construction ");
-    			br2 = claim_element(main_nodes, "BR", {});
-    			t4 = claim_space(main_nodes);
-    			br3 = claim_element(main_nodes, "BR", {});
-    			t5 = claim_space(main_nodes);
-    			input0 = claim_element(main_nodes, "INPUT", { type: true, class: true, name: true });
-    			t6 = claim_space(main_nodes);
-    			button0 = claim_element(main_nodes, "BUTTON", { class: true });
-    			var button0_nodes = children(button0);
-    			t7 = claim_text(button0_nodes, "Get Questions");
-    			button0_nodes.forEach(detach_dev);
-    			t8 = claim_space(main_nodes);
-    			input1 = claim_element(main_nodes, "INPUT", { type: true, class: true, name: true });
-    			t9 = claim_space(main_nodes);
-    			button1 = claim_element(main_nodes, "BUTTON", { class: true });
-    			var button1_nodes = children(button1);
-    			t10 = claim_text(button1_nodes, "Get Claims");
-    			button1_nodes.forEach(detach_dev);
-    			t11 = claim_space(main_nodes);
-    			div0 = claim_element(main_nodes, "DIV", {});
-    			var div0_nodes = children(div0);
-    			if (if_block0) if_block0.l(div0_nodes);
-    			div0_nodes.forEach(detach_dev);
-    			t12 = claim_space(main_nodes);
-    			div1 = claim_element(main_nodes, "DIV", {});
-    			var div1_nodes = children(div1);
-    			if (if_block1) if_block1.l(div1_nodes);
-    			div1_nodes.forEach(detach_dev);
+    			div = claim_element(main_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			if (if_block0) if_block0.l(div_nodes);
+    			t = claim_space(div_nodes);
+    			if (if_block1) if_block1.l(div_nodes);
+    			div_nodes.forEach(detach_dev);
     			main_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			add_location(br0, file$b, 44, 4, 901);
-    			add_location(br1, file$b, 45, 4, 912);
-    			attr_dev(h3, "class", "svelte-qfz70i");
-    			add_location(h3, file$b, 46, 4, 923);
-    			add_location(br2, file$b, 47, 26, 968);
-    			add_location(br3, file$b, 48, 4, 979);
-    			attr_dev(input0, "type", "number");
-    			attr_dev(input0, "class", "quantityquestion");
-    			attr_dev(input0, "name", "fname");
-    			add_location(input0, file$b, 49, 4, 990);
-    			attr_dev(button0, "class", "svelte-qfz70i");
-    			add_location(button0, file$b, 50, 4, 1086);
-    			attr_dev(input1, "type", "number");
-    			attr_dev(input1, "class", "quantityclaim");
-    			attr_dev(input1, "name", "fname");
-    			add_location(input1, file$b, 51, 4, 1145);
-    			attr_dev(button1, "class", "svelte-qfz70i");
-    			add_location(button1, file$b, 52, 4, 1235);
-    			add_location(div0, file$b, 53, 4, 1288);
-    			add_location(div1, file$b, 62, 4, 1481);
-    			attr_dev(main, "class", "svelte-qfz70i");
-    			add_location(main, file$b, 43, 0, 890);
+    			attr_dev(div, "class", "gamecontainer svelte-179pou2");
+    			add_location(div, file$b, 108, 4, 3126);
+    			attr_dev(main, "class", "svelte-179pou2");
+    			add_location(main, file$b, 107, 0, 3115);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, br0);
-    			append_dev(main, t0);
-    			append_dev(main, br1);
-    			append_dev(main, t1);
-    			append_dev(main, h3);
-    			append_dev(h3, t2);
-    			append_dev(main, t3);
-    			append_dev(main, br2);
-    			append_dev(main, t4);
-    			append_dev(main, br3);
-    			append_dev(main, t5);
-    			append_dev(main, input0);
-    			set_input_value(input0, /*quantityQuestion*/ ctx[2]);
-    			append_dev(main, t6);
-    			append_dev(main, button0);
-    			append_dev(button0, t7);
-    			append_dev(main, t8);
-    			append_dev(main, input1);
-    			set_input_value(input1, /*quantityClaim*/ ctx[3]);
-    			append_dev(main, t9);
-    			append_dev(main, button1);
-    			append_dev(button1, t10);
-    			append_dev(main, t11);
-    			append_dev(main, div0);
-    			if (if_block0) if_block0.m(div0, null);
-    			append_dev(main, t12);
-    			append_dev(main, div1);
-    			if (if_block1) if_block1.m(div1, null);
-
-    			if (!mounted) {
-    				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[6]),
-    					listen_dev(button0, "click", /*getQuestions*/ ctx[4], false, false, false),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[7]),
-    					listen_dev(button1, "click", /*getClaims*/ ctx[5], false, false, false)
-    				];
-
-    				mounted = true;
-    			}
+    			append_dev(main, div);
+    			if (if_block0) if_block0.m(div, null);
+    			append_dev(div, t);
+    			if (if_block1) if_block1.m(div, null);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*quantityQuestion*/ 4 && to_number(input0.value) !== /*quantityQuestion*/ ctx[2]) {
-    				set_input_value(input0, /*quantityQuestion*/ ctx[2]);
-    			}
-
-    			if (dirty & /*quantityClaim*/ 8 && to_number(input1.value) !== /*quantityClaim*/ ctx[3]) {
-    				set_input_value(input1, /*quantityClaim*/ ctx[3]);
-    			}
-
-    			if (/*questions*/ ctx[0].length > 0) {
+    			if (!/*gameEnded*/ ctx[1]) {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
     				} else {
     					if_block0 = create_if_block_1$4(ctx);
     					if_block0.c();
-    					if_block0.m(div0, null);
+    					if_block0.m(div, t);
     				}
     			} else if (if_block0) {
     				if_block0.d(1);
     				if_block0 = null;
     			}
 
-    			if (/*claims*/ ctx[1].length > 0) {
-    				if (if_block1) {
-    					if_block1.p(ctx, dirty);
-    				} else {
+    			if (/*gameEnded*/ ctx[1]) {
+    				if (if_block1) ; else {
     					if_block1 = create_if_block$6(ctx);
     					if_block1.c();
-    					if_block1.m(div1, null);
+    					if_block1.m(div, null);
     				}
     			} else if (if_block1) {
     				if_block1.d(1);
@@ -9640,8 +9498,6 @@ var app = (function () {
     			if (detaching) detach_dev(main);
     			if (if_block0) if_block0.d();
     			if (if_block1) if_block1.d();
-    			mounted = false;
-    			run_all(dispose);
     		}
     	};
 
@@ -9658,57 +9514,2057 @@ var app = (function () {
 
     function instance$d($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
-    	validate_slots("NewGame", slots, []);
-    	
-    	let questions = [];
-    	let claims = [];
-    	let quantityQuestion = 10;
-    	let quantityClaim = 10;
+    	validate_slots("Game", slots, []);
 
-    	function getQuestions() {
-    		doGetWithParams(randomquestion, quantityQuestion).then(qs => $$invalidate(0, questions = qs));
+    	var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
+    		function adopt(value) {
+    			return value instanceof P
+    			? value
+    			: new P(function (resolve) {
+    						resolve(value);
+    					});
+    		}
+
+    		return new (P || (P = Promise))(function (resolve, reject) {
+    				function fulfilled(value) {
+    					try {
+    						step(generator.next(value));
+    					} catch(e) {
+    						reject(e);
+    					}
+    				}
+
+    				function rejected(value) {
+    					try {
+    						step(generator["throw"](value));
+    					} catch(e) {
+    						reject(e);
+    					}
+    				}
+
+    				function step(result) {
+    					result.done
+    					? resolve(result.value)
+    					: adopt(result.value).then(fulfilled, rejected);
+    				}
+
+    				step((generator = generator.apply(thisArg, _arguments || [])).next());
+    			});
+    	};
+
+    	
+    	let { questions = [] } = $$props;
+    	let { claims = [] } = $$props;
+    	let gameoptions = [];
+    	let gameStarted = false;
+    	let gameEnded = false;
+    	let currentText = undefined;
+    	let currentTitle = undefined;
+    	let gamequestions = [];
+    	let gameclaims = [];
+    	let lengthRemaining = questions.length + claims.length;
+
+    	onMount(() => __awaiter(void 0, void 0, void 0, function* () {
+    		console.log(questions);
+
+    		if (questions.length > 0) {
+    			gameoptions.push("Q");
+    			gamequestions = [...gamequestions, ...questions];
+    		}
+
+    		if (claims.length > 0) {
+    			gameoptions.push("C");
+    			gameclaims = claims;
+    		}
+    	}));
+
+    	function getNext() {
+    		if (lengthRemaining === 0) {
+    			$$invalidate(1, gameEnded = true);
+    			return;
+    		}
+
+    		let lol = gameoptions.length > 1
+    		? gameoptions[random(gameoptions.length)]
+    		: gameoptions[0];
+
+    		if (lol === "Q") {
+    			let qs = gamequestions[random(gamequestions.length)];
+    			$$invalidate(2, currentText = qs.text);
+    			$$invalidate(3, currentTitle = "Question");
+
+    			if (gamequestions.length === 1) {
+    				gameoptions = gameoptions.filter(i => i !== "Q");
+    			}
+
+    			gamequestions = gamequestions.filter(q => q.id !== qs.id);
+    		} else if (lol === "C") {
+    			let cl = gameclaims[random(gameclaims.length)];
+    			$$invalidate(2, currentText = cl.text);
+    			$$invalidate(3, currentTitle = "Claim");
+
+    			if (gameclaims.length === 1) {
+    				gameoptions = gameoptions.filter(i => i !== "C");
+    			}
+
+    			gameclaims = gameclaims.filter(c => c.id !== cl.id);
+    		}
+
+    		lengthRemaining = gamequestions.length + gameclaims.length;
     	}
 
-    	function getClaims() {
-    		console.log("get");
-    		doGet(claimUrl).then(qs => $$invalidate(1, claims = qs));
+    	function setGameStarted() {
+    		$$invalidate(0, gameStarted = true);
+    		getNext();
+    	}
+
+    	const writable_props = ["questions", "claims"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$1.warn(`<Game> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("questions" in $$props) $$invalidate(6, questions = $$props.questions);
+    		if ("claims" in $$props) $$invalidate(7, claims = $$props.claims);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		__awaiter,
+    		onMount,
+    		random,
+    		questions,
+    		claims,
+    		gameoptions,
+    		gameStarted,
+    		gameEnded,
+    		currentText,
+    		currentTitle,
+    		gamequestions,
+    		gameclaims,
+    		lengthRemaining,
+    		getNext,
+    		setGameStarted
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("__awaiter" in $$props) __awaiter = $$props.__awaiter;
+    		if ("questions" in $$props) $$invalidate(6, questions = $$props.questions);
+    		if ("claims" in $$props) $$invalidate(7, claims = $$props.claims);
+    		if ("gameoptions" in $$props) gameoptions = $$props.gameoptions;
+    		if ("gameStarted" in $$props) $$invalidate(0, gameStarted = $$props.gameStarted);
+    		if ("gameEnded" in $$props) $$invalidate(1, gameEnded = $$props.gameEnded);
+    		if ("currentText" in $$props) $$invalidate(2, currentText = $$props.currentText);
+    		if ("currentTitle" in $$props) $$invalidate(3, currentTitle = $$props.currentTitle);
+    		if ("gamequestions" in $$props) gamequestions = $$props.gamequestions;
+    		if ("gameclaims" in $$props) gameclaims = $$props.gameclaims;
+    		if ("lengthRemaining" in $$props) lengthRemaining = $$props.lengthRemaining;
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		gameStarted,
+    		gameEnded,
+    		currentText,
+    		currentTitle,
+    		getNext,
+    		setGameStarted,
+    		questions,
+    		claims
+    	];
+    }
+
+    class Game extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$d, create_fragment$d, safe_not_equal, { questions: 6, claims: 7 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Game",
+    			options,
+    			id: create_fragment$d.name
+    		});
+    	}
+
+    	get questions() {
+    		throw new Error("<Game>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set questions(value) {
+    		throw new Error("<Game>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get claims() {
+    		throw new Error("<Game>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set claims(value) {
+    		throw new Error("<Game>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/pages/game/GameSetupItem.svelte generated by Svelte v3.26.0 */
+    const file$c = "src/pages/game/GameSetupItem.svelte";
+
+    // (85:12) {#if categoryError}
+    function create_if_block_1$5(ctx) {
+    	let p;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t = text("You have to sleect a category");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			p = claim_element(nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t = claim_text(p_nodes, "You have to sleect a category");
+    			p_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "svelte-1a5bmpq");
+    			add_location(p, file$c, 85, 16, 1927);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$5.name,
+    		type: "if",
+    		source: "(85:12) {#if categoryError}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (88:12) {#if languageError}
+    function create_if_block$7(ctx) {
+    	let p;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t = text("You have to sleect a language");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			p = claim_element(nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t = claim_text(p_nodes, "You have to sleect a language");
+    			p_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "svelte-1a5bmpq");
+    			add_location(p, file$c, 88, 16, 2030);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$7.name,
+    		type: "if",
+    		source: "(88:12) {#if languageError}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$e(ctx) {
+    	let main;
+    	let br0;
+    	let t0;
+    	let div1;
+    	let h3;
+    	let t1;
+    	let t2;
+    	let select0;
+    	let updating_selectedValue;
+    	let t3;
+    	let br1;
+    	let t4;
+    	let select1;
+    	let updating_selectedValue_1;
+    	let t5;
+    	let br2;
+    	let t6;
+    	let div0;
+    	let t7;
+    	let t8;
+    	let input;
+    	let t9;
+    	let button;
+    	let t10;
+    	let t11;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	function select0_selectedValue_binding(value) {
+    		/*select0_selectedValue_binding*/ ctx[11].call(null, value);
+    	}
+
+    	let select0_props = {
+    		items: /*categoryItems*/ ctx[1],
+    		showIndicator: "true",
+    		placeholder: "Category"
+    	};
+
+    	if (/*selectedCategory*/ ctx[4] !== void 0) {
+    		select0_props.selectedValue = /*selectedCategory*/ ctx[4];
+    	}
+
+    	select0 = new Select({ props: select0_props, $$inline: true });
+    	binding_callbacks.push(() => bind(select0, "selectedValue", select0_selectedValue_binding));
+
+    	function select1_selectedValue_binding(value) {
+    		/*select1_selectedValue_binding*/ ctx[12].call(null, value);
+    	}
+
+    	let select1_props = {
+    		items: /*languageItems*/ ctx[2],
+    		showIndicator: "true",
+    		placeholder: "Language"
+    	};
+
+    	if (/*selectedLanguage*/ ctx[5] !== void 0) {
+    		select1_props.selectedValue = /*selectedLanguage*/ ctx[5];
+    	}
+
+    	select1 = new Select({ props: select1_props, $$inline: true });
+    	binding_callbacks.push(() => bind(select1, "selectedValue", select1_selectedValue_binding));
+    	let if_block0 = /*categoryError*/ ctx[6] && create_if_block_1$5(ctx);
+    	let if_block1 = /*languageError*/ ctx[7] && create_if_block$7(ctx);
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			br0 = element("br");
+    			t0 = space();
+    			div1 = element("div");
+    			h3 = element("h3");
+    			t1 = text(/*title*/ ctx[0]);
+    			t2 = space();
+    			create_component(select0.$$.fragment);
+    			t3 = space();
+    			br1 = element("br");
+    			t4 = space();
+    			create_component(select1.$$.fragment);
+    			t5 = space();
+    			br2 = element("br");
+    			t6 = space();
+    			div0 = element("div");
+    			if (if_block0) if_block0.c();
+    			t7 = space();
+    			if (if_block1) if_block1.c();
+    			t8 = space();
+    			input = element("input");
+    			t9 = space();
+    			button = element("button");
+    			t10 = text("Get ");
+    			t11 = text(/*title*/ ctx[0]);
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			main = claim_element(nodes, "MAIN", {});
+    			var main_nodes = children(main);
+    			br0 = claim_element(main_nodes, "BR", {});
+    			t0 = claim_space(main_nodes);
+    			div1 = claim_element(main_nodes, "DIV", { class: true });
+    			var div1_nodes = children(div1);
+    			h3 = claim_element(div1_nodes, "H3", { class: true });
+    			var h3_nodes = children(h3);
+    			t1 = claim_text(h3_nodes, /*title*/ ctx[0]);
+    			h3_nodes.forEach(detach_dev);
+    			t2 = claim_space(div1_nodes);
+    			claim_component(select0.$$.fragment, div1_nodes);
+    			t3 = claim_space(div1_nodes);
+    			br1 = claim_element(div1_nodes, "BR", {});
+    			t4 = claim_space(div1_nodes);
+    			claim_component(select1.$$.fragment, div1_nodes);
+    			t5 = claim_space(div1_nodes);
+    			br2 = claim_element(div1_nodes, "BR", {});
+    			t6 = claim_space(div1_nodes);
+    			div0 = claim_element(div1_nodes, "DIV", { class: true });
+    			var div0_nodes = children(div0);
+    			if (if_block0) if_block0.l(div0_nodes);
+    			t7 = claim_space(div0_nodes);
+    			if (if_block1) if_block1.l(div0_nodes);
+    			div0_nodes.forEach(detach_dev);
+    			t8 = claim_space(div1_nodes);
+    			input = claim_element(div1_nodes, "INPUT", { type: true, class: true, name: true });
+    			t9 = claim_space(div1_nodes);
+    			button = claim_element(div1_nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+    			t10 = claim_text(button_nodes, "Get ");
+    			t11 = claim_text(button_nodes, /*title*/ ctx[0]);
+    			button_nodes.forEach(detach_dev);
+    			div1_nodes.forEach(detach_dev);
+    			main_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			add_location(br0, file$c, 64, 4, 1411);
+    			attr_dev(h3, "class", "svelte-1a5bmpq");
+    			add_location(h3, file$c, 67, 8, 1459);
+    			add_location(br1, file$c, 74, 8, 1656);
+    			add_location(br2, file$c, 82, 8, 1844);
+    			attr_dev(div0, "class", "error svelte-1a5bmpq");
+    			add_location(div0, file$c, 83, 8, 1859);
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "quantityquestion svelte-1a5bmpq");
+    			attr_dev(input, "name", "fname");
+    			add_location(input, file$c, 92, 8, 2109);
+    			attr_dev(button, "class", "svelte-1a5bmpq");
+    			add_location(button, file$c, 94, 8, 2202);
+    			attr_dev(div1, "class", "progresssteps svelte-1a5bmpq");
+    			add_location(div1, file$c, 66, 4, 1423);
+    			add_location(main, file$c, 63, 0, 1400);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, br0);
+    			append_dev(main, t0);
+    			append_dev(main, div1);
+    			append_dev(div1, h3);
+    			append_dev(h3, t1);
+    			append_dev(div1, t2);
+    			mount_component(select0, div1, null);
+    			append_dev(div1, t3);
+    			append_dev(div1, br1);
+    			append_dev(div1, t4);
+    			mount_component(select1, div1, null);
+    			append_dev(div1, t5);
+    			append_dev(div1, br2);
+    			append_dev(div1, t6);
+    			append_dev(div1, div0);
+    			if (if_block0) if_block0.m(div0, null);
+    			append_dev(div0, t7);
+    			if (if_block1) if_block1.m(div0, null);
+    			append_dev(div1, t8);
+    			append_dev(div1, input);
+    			set_input_value(input, /*quantity*/ ctx[3]);
+    			append_dev(div1, t9);
+    			append_dev(div1, button);
+    			append_dev(button, t10);
+    			append_dev(button, t11);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[13]),
+    					listen_dev(button, "click", /*getData*/ ctx[8], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!current || dirty & /*title*/ 1) set_data_dev(t1, /*title*/ ctx[0]);
+    			const select0_changes = {};
+    			if (dirty & /*categoryItems*/ 2) select0_changes.items = /*categoryItems*/ ctx[1];
+
+    			if (!updating_selectedValue && dirty & /*selectedCategory*/ 16) {
+    				updating_selectedValue = true;
+    				select0_changes.selectedValue = /*selectedCategory*/ ctx[4];
+    				add_flush_callback(() => updating_selectedValue = false);
+    			}
+
+    			select0.$set(select0_changes);
+    			const select1_changes = {};
+    			if (dirty & /*languageItems*/ 4) select1_changes.items = /*languageItems*/ ctx[2];
+
+    			if (!updating_selectedValue_1 && dirty & /*selectedLanguage*/ 32) {
+    				updating_selectedValue_1 = true;
+    				select1_changes.selectedValue = /*selectedLanguage*/ ctx[5];
+    				add_flush_callback(() => updating_selectedValue_1 = false);
+    			}
+
+    			select1.$set(select1_changes);
+
+    			if (/*categoryError*/ ctx[6]) {
+    				if (if_block0) ; else {
+    					if_block0 = create_if_block_1$5(ctx);
+    					if_block0.c();
+    					if_block0.m(div0, t7);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (/*languageError*/ ctx[7]) {
+    				if (if_block1) ; else {
+    					if_block1 = create_if_block$7(ctx);
+    					if_block1.c();
+    					if_block1.m(div0, null);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+
+    			if (dirty & /*quantity*/ 8 && to_number(input.value) !== /*quantity*/ ctx[3]) {
+    				set_input_value(input, /*quantity*/ ctx[3]);
+    			}
+
+    			if (!current || dirty & /*title*/ 1) set_data_dev(t11, /*title*/ ctx[0]);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(select0.$$.fragment, local);
+    			transition_in(select1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(select0.$$.fragment, local);
+    			transition_out(select1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_component(select0);
+    			destroy_component(select1);
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$e.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$e($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("GameSetupItem", slots, []);
+    	
+    	let { title = "" } = $$props;
+    	let { url = "" } = $$props;
+    	let { list = [] } = $$props;
+    	let quantity = 10;
+    	let { categoryItems = [] } = $$props;
+    	let { languageItems = [] } = $$props;
+    	let selectedCategory = undefined;
+    	let selectedLanguage = undefined;
+    	let categoryError = false;
+    	let languageError = false;
+
+    	function getData() {
+    		if (!selectedCategory) $$invalidate(6, categoryError = true);
+
+    		if (!selectedLanguage) $$invalidate(7, languageError = true); else if (quantity > 0 && selectedCategory && selectedLanguage) {
+    			let params = arrayToParamstring([quantity, selectedLanguage.value, selectedCategory.value]);
+    			doGetWithParams(url, params).then(qs => $$invalidate(9, list = qs));
+    		}
+    	}
+
+    	const writable_props = ["title", "url", "list", "categoryItems", "languageItems"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<GameSetupItem> was created with unknown prop '${key}'`);
+    	});
+
+    	function select0_selectedValue_binding(value) {
+    		selectedCategory = value;
+    		$$invalidate(4, selectedCategory);
+    	}
+
+    	function select1_selectedValue_binding(value) {
+    		selectedLanguage = value;
+    		$$invalidate(5, selectedLanguage);
+    	}
+
+    	function input_input_handler() {
+    		quantity = to_number(this.value);
+    		$$invalidate(3, quantity);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ("title" in $$props) $$invalidate(0, title = $$props.title);
+    		if ("url" in $$props) $$invalidate(10, url = $$props.url);
+    		if ("list" in $$props) $$invalidate(9, list = $$props.list);
+    		if ("categoryItems" in $$props) $$invalidate(1, categoryItems = $$props.categoryItems);
+    		if ("languageItems" in $$props) $$invalidate(2, languageItems = $$props.languageItems);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		arrayToParamstring,
+    		doGetWithParams,
+    		Select,
+    		title,
+    		url,
+    		list,
+    		quantity,
+    		categoryItems,
+    		languageItems,
+    		selectedCategory,
+    		selectedLanguage,
+    		categoryError,
+    		languageError,
+    		getData
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("title" in $$props) $$invalidate(0, title = $$props.title);
+    		if ("url" in $$props) $$invalidate(10, url = $$props.url);
+    		if ("list" in $$props) $$invalidate(9, list = $$props.list);
+    		if ("quantity" in $$props) $$invalidate(3, quantity = $$props.quantity);
+    		if ("categoryItems" in $$props) $$invalidate(1, categoryItems = $$props.categoryItems);
+    		if ("languageItems" in $$props) $$invalidate(2, languageItems = $$props.languageItems);
+    		if ("selectedCategory" in $$props) $$invalidate(4, selectedCategory = $$props.selectedCategory);
+    		if ("selectedLanguage" in $$props) $$invalidate(5, selectedLanguage = $$props.selectedLanguage);
+    		if ("categoryError" in $$props) $$invalidate(6, categoryError = $$props.categoryError);
+    		if ("languageError" in $$props) $$invalidate(7, languageError = $$props.languageError);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		title,
+    		categoryItems,
+    		languageItems,
+    		quantity,
+    		selectedCategory,
+    		selectedLanguage,
+    		categoryError,
+    		languageError,
+    		getData,
+    		list,
+    		url,
+    		select0_selectedValue_binding,
+    		select1_selectedValue_binding,
+    		input_input_handler
+    	];
+    }
+
+    class GameSetupItem extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$e, create_fragment$e, safe_not_equal, {
+    			title: 0,
+    			url: 10,
+    			list: 9,
+    			categoryItems: 1,
+    			languageItems: 2
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "GameSetupItem",
+    			options,
+    			id: create_fragment$e.name
+    		});
+    	}
+
+    	get title() {
+    		throw new Error("<GameSetupItem>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set title(value) {
+    		throw new Error("<GameSetupItem>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get url() {
+    		throw new Error("<GameSetupItem>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set url(value) {
+    		throw new Error("<GameSetupItem>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get list() {
+    		throw new Error("<GameSetupItem>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set list(value) {
+    		throw new Error("<GameSetupItem>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get categoryItems() {
+    		throw new Error("<GameSetupItem>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set categoryItems(value) {
+    		throw new Error("<GameSetupItem>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get languageItems() {
+    		throw new Error("<GameSetupItem>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set languageItems(value) {
+    		throw new Error("<GameSetupItem>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* node_modules/svelte-material-icons/Check.svelte generated by Svelte v3.26.0 */
+
+    const file$d = "node_modules/svelte-material-icons/Check.svelte";
+
+    function create_fragment$f(ctx) {
+    	let svg;
+    	let path;
+
+    	const block = {
+    		c: function create() {
+    			svg = svg_element("svg");
+    			path = svg_element("path");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			svg = claim_element(nodes, "svg", { width: true, height: true, viewBox: true }, 1);
+    			var svg_nodes = children(svg);
+    			path = claim_element(svg_nodes, "path", { d: true, fill: true }, 1);
+    			children(path).forEach(detach_dev);
+    			svg_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(path, "d", "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z");
+    			attr_dev(path, "fill", /*color*/ ctx[2]);
+    			add_location(path, file$d, 8, 59, 234);
+    			attr_dev(svg, "width", /*width*/ ctx[0]);
+    			attr_dev(svg, "height", /*height*/ ctx[1]);
+    			attr_dev(svg, "viewBox", /*viewBox*/ ctx[3]);
+    			add_location(svg, file$d, 8, 0, 175);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, svg, anchor);
+    			append_dev(svg, path);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*color*/ 4) {
+    				attr_dev(path, "fill", /*color*/ ctx[2]);
+    			}
+
+    			if (dirty & /*width*/ 1) {
+    				attr_dev(svg, "width", /*width*/ ctx[0]);
+    			}
+
+    			if (dirty & /*height*/ 2) {
+    				attr_dev(svg, "height", /*height*/ ctx[1]);
+    			}
+
+    			if (dirty & /*viewBox*/ 8) {
+    				attr_dev(svg, "viewBox", /*viewBox*/ ctx[3]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(svg);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$f.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$f($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Check", slots, []);
+    	let { size = "1em" } = $$props;
+    	let { width = size } = $$props;
+    	let { height = size } = $$props;
+    	let { color = "currentColor" } = $$props;
+    	let { viewBox = "0 0 24 24" } = $$props;
+    	const writable_props = ["size", "width", "height", "color", "viewBox"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Check> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("size" in $$props) $$invalidate(4, size = $$props.size);
+    		if ("width" in $$props) $$invalidate(0, width = $$props.width);
+    		if ("height" in $$props) $$invalidate(1, height = $$props.height);
+    		if ("color" in $$props) $$invalidate(2, color = $$props.color);
+    		if ("viewBox" in $$props) $$invalidate(3, viewBox = $$props.viewBox);
+    	};
+
+    	$$self.$capture_state = () => ({ size, width, height, color, viewBox });
+
+    	$$self.$inject_state = $$props => {
+    		if ("size" in $$props) $$invalidate(4, size = $$props.size);
+    		if ("width" in $$props) $$invalidate(0, width = $$props.width);
+    		if ("height" in $$props) $$invalidate(1, height = $$props.height);
+    		if ("color" in $$props) $$invalidate(2, color = $$props.color);
+    		if ("viewBox" in $$props) $$invalidate(3, viewBox = $$props.viewBox);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [width, height, color, viewBox, size];
+    }
+
+    class Check extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$f, create_fragment$f, safe_not_equal, {
+    			size: 4,
+    			width: 0,
+    			height: 1,
+    			color: 2,
+    			viewBox: 3
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Check",
+    			options,
+    			id: create_fragment$f.name
+    		});
+    	}
+
+    	get size() {
+    		throw new Error("<Check>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set size(value) {
+    		throw new Error("<Check>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get width() {
+    		throw new Error("<Check>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set width(value) {
+    		throw new Error("<Check>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get height() {
+    		throw new Error("<Check>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set height(value) {
+    		throw new Error("<Check>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get color() {
+    		throw new Error("<Check>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set color(value) {
+    		throw new Error("<Check>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get viewBox() {
+    		throw new Error("<Check>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set viewBox(value) {
+    		throw new Error("<Check>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/pages/game/GameSetupItemDone.svelte generated by Svelte v3.26.0 */
+    const file$e = "src/pages/game/GameSetupItemDone.svelte";
+
+    function create_fragment$g(ctx) {
+    	let main;
+    	let div;
+    	let check;
+    	let t0;
+    	let p;
+    	let t1;
+    	let t2;
+    	let t3;
+    	let t4;
+    	let t5;
+    	let current;
+
+    	check = new Check({
+    			props: {
+    				size: /*size*/ ctx[3],
+    				color: /*color*/ ctx[2]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			div = element("div");
+    			create_component(check.$$.fragment);
+    			t0 = space();
+    			p = element("p");
+    			t1 = text("Success! ");
+    			t2 = text(/*quantity*/ ctx[1]);
+    			t3 = space();
+    			t4 = text(/*itemType*/ ctx[0]);
+    			t5 = text(" was added to your game");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			main = claim_element(nodes, "MAIN", {});
+    			var main_nodes = children(main);
+    			div = claim_element(main_nodes, "DIV", { class: true });
+    			var div_nodes = children(div);
+    			claim_component(check.$$.fragment, div_nodes);
+    			t0 = claim_space(div_nodes);
+    			p = claim_element(div_nodes, "P", { class: true });
+    			var p_nodes = children(p);
+    			t1 = claim_text(p_nodes, "Success! ");
+    			t2 = claim_text(p_nodes, /*quantity*/ ctx[1]);
+    			t3 = claim_space(p_nodes);
+    			t4 = claim_text(p_nodes, /*itemType*/ ctx[0]);
+    			t5 = claim_text(p_nodes, " was added to your game");
+    			p_nodes.forEach(detach_dev);
+    			div_nodes.forEach(detach_dev);
+    			main_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			attr_dev(p, "class", "svelte-cte85d");
+    			add_location(p, file$e, 18, 8, 351);
+    			attr_dev(div, "class", "successcontainer");
+    			add_location(div, file$e, 15, 4, 278);
+    			add_location(main, file$e, 14, 0, 267);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, div);
+    			mount_component(check, div, null);
+    			append_dev(div, t0);
+    			append_dev(div, p);
+    			append_dev(p, t1);
+    			append_dev(p, t2);
+    			append_dev(p, t3);
+    			append_dev(p, t4);
+    			append_dev(p, t5);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!current || dirty & /*quantity*/ 2) set_data_dev(t2, /*quantity*/ ctx[1]);
+    			if (!current || dirty & /*itemType*/ 1) set_data_dev(t4, /*itemType*/ ctx[0]);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(check.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(check.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_component(check);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$g.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$g($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("GameSetupItemDone", slots, []);
+    	let { itemType = "" } = $$props;
+    	let { quantity = 10 } = $$props;
+    	let color = "green";
+    	let size = "3rem";
+    	const writable_props = ["itemType", "quantity"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<GameSetupItemDone> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("itemType" in $$props) $$invalidate(0, itemType = $$props.itemType);
+    		if ("quantity" in $$props) $$invalidate(1, quantity = $$props.quantity);
+    	};
+
+    	$$self.$capture_state = () => ({ Check, itemType, quantity, color, size });
+
+    	$$self.$inject_state = $$props => {
+    		if ("itemType" in $$props) $$invalidate(0, itemType = $$props.itemType);
+    		if ("quantity" in $$props) $$invalidate(1, quantity = $$props.quantity);
+    		if ("color" in $$props) $$invalidate(2, color = $$props.color);
+    		if ("size" in $$props) $$invalidate(3, size = $$props.size);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [itemType, quantity, color, size];
+    }
+
+    class GameSetupItemDone extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$g, create_fragment$g, safe_not_equal, { itemType: 0, quantity: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "GameSetupItemDone",
+    			options,
+    			id: create_fragment$g.name
+    		});
+    	}
+
+    	get itemType() {
+    		throw new Error("<GameSetupItemDone>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set itemType(value) {
+    		throw new Error("<GameSetupItemDone>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get quantity() {
+    		throw new Error("<GameSetupItemDone>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set quantity(value) {
+    		throw new Error("<GameSetupItemDone>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src/pages/game/newGame.svelte generated by Svelte v3.26.0 */
+
+    const { console: console_1$2 } = globals;
+    const file$f = "src/pages/game/newGame.svelte";
+
+    // (84:4) {#if !gameSetupDone}
+    function create_if_block_1$6(ctx) {
+    	let t0;
+    	let t1;
+    	let t2;
+    	let t3;
+    	let br0;
+    	let t4;
+    	let br1;
+    	let t5;
+    	let button;
+    	let t6;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let if_block0 = !/*questionAdded*/ ctx[9] && create_if_block_5$1(ctx);
+    	let if_block1 = /*questionAdded*/ ctx[9] && create_if_block_4$1(ctx);
+    	let if_block2 = !/*claimsAdded*/ ctx[10] && create_if_block_3$4(ctx);
+    	let if_block3 = /*claimsAdded*/ ctx[10] && create_if_block_2$4(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block0) if_block0.c();
+    			t0 = space();
+    			if (if_block1) if_block1.c();
+    			t1 = space();
+    			if (if_block2) if_block2.c();
+    			t2 = space();
+    			if (if_block3) if_block3.c();
+    			t3 = space();
+    			br0 = element("br");
+    			t4 = space();
+    			br1 = element("br");
+    			t5 = space();
+    			button = element("button");
+    			t6 = text("game setup done");
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			if (if_block0) if_block0.l(nodes);
+    			t0 = claim_space(nodes);
+    			if (if_block1) if_block1.l(nodes);
+    			t1 = claim_space(nodes);
+    			if (if_block2) if_block2.l(nodes);
+    			t2 = claim_space(nodes);
+    			if (if_block3) if_block3.l(nodes);
+    			t3 = claim_space(nodes);
+    			br0 = claim_element(nodes, "BR", {});
+    			t4 = claim_space(nodes);
+    			br1 = claim_element(nodes, "BR", {});
+    			t5 = claim_space(nodes);
+    			button = claim_element(nodes, "BUTTON", { class: true });
+    			var button_nodes = children(button);
+    			t6 = claim_text(button_nodes, "game setup done");
+    			button_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			add_location(br0, file$f, 109, 8, 3364);
+    			add_location(br1, file$f, 110, 8, 3379);
+    			attr_dev(button, "class", "svelte-1e5ximz");
+    			add_location(button, file$f, 111, 8, 3394);
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block0) if_block0.m(target, anchor);
+    			insert_dev(target, t0, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, t1, anchor);
+    			if (if_block2) if_block2.m(target, anchor);
+    			insert_dev(target, t2, anchor);
+    			if (if_block3) if_block3.m(target, anchor);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, br0, anchor);
+    			insert_dev(target, t4, anchor);
+    			insert_dev(target, br1, anchor);
+    			insert_dev(target, t5, anchor);
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t6);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*setGameSetupDone*/ ctx[11], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!/*questionAdded*/ ctx[9]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+
+    					if (dirty & /*questionAdded*/ 512) {
+    						transition_in(if_block0, 1);
+    					}
+    				} else {
+    					if_block0 = create_if_block_5$1(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(t0.parentNode, t0);
+    				}
+    			} else if (if_block0) {
+    				group_outros();
+
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*questionAdded*/ ctx[9]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty & /*questionAdded*/ 512) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block_4$1(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(t1.parentNode, t1);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (!/*claimsAdded*/ ctx[10]) {
+    				if (if_block2) {
+    					if_block2.p(ctx, dirty);
+
+    					if (dirty & /*claimsAdded*/ 1024) {
+    						transition_in(if_block2, 1);
+    					}
+    				} else {
+    					if_block2 = create_if_block_3$4(ctx);
+    					if_block2.c();
+    					transition_in(if_block2, 1);
+    					if_block2.m(t2.parentNode, t2);
+    				}
+    			} else if (if_block2) {
+    				group_outros();
+
+    				transition_out(if_block2, 1, 1, () => {
+    					if_block2 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*claimsAdded*/ ctx[10]) {
+    				if (if_block3) {
+    					if_block3.p(ctx, dirty);
+
+    					if (dirty & /*claimsAdded*/ 1024) {
+    						transition_in(if_block3, 1);
+    					}
+    				} else {
+    					if_block3 = create_if_block_2$4(ctx);
+    					if_block3.c();
+    					transition_in(if_block3, 1);
+    					if_block3.m(t3.parentNode, t3);
+    				}
+    			} else if (if_block3) {
+    				group_outros();
+
+    				transition_out(if_block3, 1, 1, () => {
+    					if_block3 = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block0);
+    			transition_in(if_block1);
+    			transition_in(if_block2);
+    			transition_in(if_block3);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block0);
+    			transition_out(if_block1);
+    			transition_out(if_block2);
+    			transition_out(if_block3);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block0) if_block0.d(detaching);
+    			if (detaching) detach_dev(t0);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(t1);
+    			if (if_block2) if_block2.d(detaching);
+    			if (detaching) detach_dev(t2);
+    			if (if_block3) if_block3.d(detaching);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(br0);
+    			if (detaching) detach_dev(t4);
+    			if (detaching) detach_dev(br1);
+    			if (detaching) detach_dev(t5);
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$6.name,
+    		type: "if",
+    		source: "(84:4) {#if !gameSetupDone}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (85:8) {#if !questionAdded}
+    function create_if_block_5$1(ctx) {
+    	let gamesetupitem;
+    	let updating_title;
+    	let updating_url;
+    	let updating_categoryItems;
+    	let updating_languageItems;
+    	let updating_list;
+    	let current;
+
+    	function gamesetupitem_title_binding(value) {
+    		/*gamesetupitem_title_binding*/ ctx[12].call(null, value);
+    	}
+
+    	function gamesetupitem_url_binding(value) {
+    		/*gamesetupitem_url_binding*/ ctx[13].call(null, value);
+    	}
+
+    	function gamesetupitem_categoryItems_binding(value) {
+    		/*gamesetupitem_categoryItems_binding*/ ctx[14].call(null, value);
+    	}
+
+    	function gamesetupitem_languageItems_binding(value) {
+    		/*gamesetupitem_languageItems_binding*/ ctx[15].call(null, value);
+    	}
+
+    	function gamesetupitem_list_binding(value) {
+    		/*gamesetupitem_list_binding*/ ctx[16].call(null, value);
+    	}
+
+    	let gamesetupitem_props = {};
+
+    	if (/*questionTitle*/ ctx[6] !== void 0) {
+    		gamesetupitem_props.title = /*questionTitle*/ ctx[6];
+    	}
+
+    	if (/*questionUrl*/ ctx[4] !== void 0) {
+    		gamesetupitem_props.url = /*questionUrl*/ ctx[4];
+    	}
+
+    	if (/*categoryItems*/ ctx[2] !== void 0) {
+    		gamesetupitem_props.categoryItems = /*categoryItems*/ ctx[2];
+    	}
+
+    	if (/*languageItems*/ ctx[3] !== void 0) {
+    		gamesetupitem_props.languageItems = /*languageItems*/ ctx[3];
+    	}
+
+    	if (/*questions*/ ctx[0] !== void 0) {
+    		gamesetupitem_props.list = /*questions*/ ctx[0];
+    	}
+
+    	gamesetupitem = new GameSetupItem({
+    			props: gamesetupitem_props,
+    			$$inline: true
+    		});
+
+    	binding_callbacks.push(() => bind(gamesetupitem, "title", gamesetupitem_title_binding));
+    	binding_callbacks.push(() => bind(gamesetupitem, "url", gamesetupitem_url_binding));
+    	binding_callbacks.push(() => bind(gamesetupitem, "categoryItems", gamesetupitem_categoryItems_binding));
+    	binding_callbacks.push(() => bind(gamesetupitem, "languageItems", gamesetupitem_languageItems_binding));
+    	binding_callbacks.push(() => bind(gamesetupitem, "list", gamesetupitem_list_binding));
+
+    	const block = {
+    		c: function create() {
+    			create_component(gamesetupitem.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(gamesetupitem.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(gamesetupitem, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const gamesetupitem_changes = {};
+
+    			if (!updating_title && dirty & /*questionTitle*/ 64) {
+    				updating_title = true;
+    				gamesetupitem_changes.title = /*questionTitle*/ ctx[6];
+    				add_flush_callback(() => updating_title = false);
+    			}
+
+    			if (!updating_url && dirty & /*questionUrl*/ 16) {
+    				updating_url = true;
+    				gamesetupitem_changes.url = /*questionUrl*/ ctx[4];
+    				add_flush_callback(() => updating_url = false);
+    			}
+
+    			if (!updating_categoryItems && dirty & /*categoryItems*/ 4) {
+    				updating_categoryItems = true;
+    				gamesetupitem_changes.categoryItems = /*categoryItems*/ ctx[2];
+    				add_flush_callback(() => updating_categoryItems = false);
+    			}
+
+    			if (!updating_languageItems && dirty & /*languageItems*/ 8) {
+    				updating_languageItems = true;
+    				gamesetupitem_changes.languageItems = /*languageItems*/ ctx[3];
+    				add_flush_callback(() => updating_languageItems = false);
+    			}
+
+    			if (!updating_list && dirty & /*questions*/ 1) {
+    				updating_list = true;
+    				gamesetupitem_changes.list = /*questions*/ ctx[0];
+    				add_flush_callback(() => updating_list = false);
+    			}
+
+    			gamesetupitem.$set(gamesetupitem_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(gamesetupitem.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(gamesetupitem.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(gamesetupitem, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_5$1.name,
+    		type: "if",
+    		source: "(85:8) {#if !questionAdded}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (93:8) {#if questionAdded}
+    function create_if_block_4$1(ctx) {
+    	let gamesetupitemdone;
+    	let current;
+
+    	gamesetupitemdone = new GameSetupItemDone({
+    			props: {
+    				itemType: /*questionTitle*/ ctx[6],
+    				quantity: /*questions*/ ctx[0].length
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(gamesetupitemdone.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(gamesetupitemdone.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(gamesetupitemdone, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const gamesetupitemdone_changes = {};
+    			if (dirty & /*questionTitle*/ 64) gamesetupitemdone_changes.itemType = /*questionTitle*/ ctx[6];
+    			if (dirty & /*questions*/ 1) gamesetupitemdone_changes.quantity = /*questions*/ ctx[0].length;
+    			gamesetupitemdone.$set(gamesetupitemdone_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(gamesetupitemdone.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(gamesetupitemdone.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(gamesetupitemdone, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4$1.name,
+    		type: "if",
+    		source: "(93:8) {#if questionAdded}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (97:8) {#if !claimsAdded}
+    function create_if_block_3$4(ctx) {
+    	let gamesetupitem;
+    	let updating_title;
+    	let updating_url;
+    	let updating_categoryItems;
+    	let updating_languageItems;
+    	let updating_list;
+    	let current;
+
+    	function gamesetupitem_title_binding_1(value) {
+    		/*gamesetupitem_title_binding_1*/ ctx[17].call(null, value);
+    	}
+
+    	function gamesetupitem_url_binding_1(value) {
+    		/*gamesetupitem_url_binding_1*/ ctx[18].call(null, value);
+    	}
+
+    	function gamesetupitem_categoryItems_binding_1(value) {
+    		/*gamesetupitem_categoryItems_binding_1*/ ctx[19].call(null, value);
+    	}
+
+    	function gamesetupitem_languageItems_binding_1(value) {
+    		/*gamesetupitem_languageItems_binding_1*/ ctx[20].call(null, value);
+    	}
+
+    	function gamesetupitem_list_binding_1(value) {
+    		/*gamesetupitem_list_binding_1*/ ctx[21].call(null, value);
+    	}
+
+    	let gamesetupitem_props = {};
+
+    	if (/*claimTitle*/ ctx[7] !== void 0) {
+    		gamesetupitem_props.title = /*claimTitle*/ ctx[7];
+    	}
+
+    	if (/*claimurl*/ ctx[5] !== void 0) {
+    		gamesetupitem_props.url = /*claimurl*/ ctx[5];
+    	}
+
+    	if (/*categoryItems*/ ctx[2] !== void 0) {
+    		gamesetupitem_props.categoryItems = /*categoryItems*/ ctx[2];
+    	}
+
+    	if (/*languageItems*/ ctx[3] !== void 0) {
+    		gamesetupitem_props.languageItems = /*languageItems*/ ctx[3];
+    	}
+
+    	if (/*claims*/ ctx[1] !== void 0) {
+    		gamesetupitem_props.list = /*claims*/ ctx[1];
+    	}
+
+    	gamesetupitem = new GameSetupItem({
+    			props: gamesetupitem_props,
+    			$$inline: true
+    		});
+
+    	binding_callbacks.push(() => bind(gamesetupitem, "title", gamesetupitem_title_binding_1));
+    	binding_callbacks.push(() => bind(gamesetupitem, "url", gamesetupitem_url_binding_1));
+    	binding_callbacks.push(() => bind(gamesetupitem, "categoryItems", gamesetupitem_categoryItems_binding_1));
+    	binding_callbacks.push(() => bind(gamesetupitem, "languageItems", gamesetupitem_languageItems_binding_1));
+    	binding_callbacks.push(() => bind(gamesetupitem, "list", gamesetupitem_list_binding_1));
+
+    	const block = {
+    		c: function create() {
+    			create_component(gamesetupitem.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(gamesetupitem.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(gamesetupitem, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const gamesetupitem_changes = {};
+
+    			if (!updating_title && dirty & /*claimTitle*/ 128) {
+    				updating_title = true;
+    				gamesetupitem_changes.title = /*claimTitle*/ ctx[7];
+    				add_flush_callback(() => updating_title = false);
+    			}
+
+    			if (!updating_url && dirty & /*claimurl*/ 32) {
+    				updating_url = true;
+    				gamesetupitem_changes.url = /*claimurl*/ ctx[5];
+    				add_flush_callback(() => updating_url = false);
+    			}
+
+    			if (!updating_categoryItems && dirty & /*categoryItems*/ 4) {
+    				updating_categoryItems = true;
+    				gamesetupitem_changes.categoryItems = /*categoryItems*/ ctx[2];
+    				add_flush_callback(() => updating_categoryItems = false);
+    			}
+
+    			if (!updating_languageItems && dirty & /*languageItems*/ 8) {
+    				updating_languageItems = true;
+    				gamesetupitem_changes.languageItems = /*languageItems*/ ctx[3];
+    				add_flush_callback(() => updating_languageItems = false);
+    			}
+
+    			if (!updating_list && dirty & /*claims*/ 2) {
+    				updating_list = true;
+    				gamesetupitem_changes.list = /*claims*/ ctx[1];
+    				add_flush_callback(() => updating_list = false);
+    			}
+
+    			gamesetupitem.$set(gamesetupitem_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(gamesetupitem.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(gamesetupitem.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(gamesetupitem, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$4.name,
+    		type: "if",
+    		source: "(97:8) {#if !claimsAdded}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (106:8) {#if claimsAdded}
+    function create_if_block_2$4(ctx) {
+    	let gamesetupitemdone;
+    	let current;
+
+    	gamesetupitemdone = new GameSetupItemDone({
+    			props: {
+    				itemType: /*claimTitle*/ ctx[7],
+    				quantity: /*claims*/ ctx[1].length
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(gamesetupitemdone.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(gamesetupitemdone.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(gamesetupitemdone, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const gamesetupitemdone_changes = {};
+    			if (dirty & /*claimTitle*/ 128) gamesetupitemdone_changes.itemType = /*claimTitle*/ ctx[7];
+    			if (dirty & /*claims*/ 2) gamesetupitemdone_changes.quantity = /*claims*/ ctx[1].length;
+    			gamesetupitemdone.$set(gamesetupitemdone_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(gamesetupitemdone.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(gamesetupitemdone.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(gamesetupitemdone, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$4.name,
+    		type: "if",
+    		source: "(106:8) {#if claimsAdded}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (114:4) {#if gameSetupDone}
+    function create_if_block$8(ctx) {
+    	let game;
+    	let current;
+
+    	game = new Game({
+    			props: {
+    				questions: /*questions*/ ctx[0],
+    				claims: /*claims*/ ctx[1]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(game.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			claim_component(game.$$.fragment, nodes);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(game, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const game_changes = {};
+    			if (dirty & /*questions*/ 1) game_changes.questions = /*questions*/ ctx[0];
+    			if (dirty & /*claims*/ 2) game_changes.claims = /*claims*/ ctx[1];
+    			game.$set(game_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(game.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(game.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(game, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$8.name,
+    		type: "if",
+    		source: "(114:4) {#if gameSetupDone}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$h(ctx) {
+    	let main;
+    	let br0;
+    	let t0;
+    	let br1;
+    	let t1;
+    	let h3;
+    	let t2;
+    	let t3;
+    	let br2;
+    	let t4;
+    	let t5;
+    	let current;
+    	let if_block0 = !/*gameSetupDone*/ ctx[8] && create_if_block_1$6(ctx);
+    	let if_block1 = /*gameSetupDone*/ ctx[8] && create_if_block$8(ctx);
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			br0 = element("br");
+    			t0 = space();
+    			br1 = element("br");
+    			t1 = space();
+    			h3 = element("h3");
+    			t2 = text("Set up new game");
+    			t3 = space();
+    			br2 = element("br");
+    			t4 = space();
+    			if (if_block0) if_block0.c();
+    			t5 = space();
+    			if (if_block1) if_block1.c();
+    			this.h();
+    		},
+    		l: function claim(nodes) {
+    			main = claim_element(nodes, "MAIN", { class: true });
+    			var main_nodes = children(main);
+    			br0 = claim_element(main_nodes, "BR", {});
+    			t0 = claim_space(main_nodes);
+    			br1 = claim_element(main_nodes, "BR", {});
+    			t1 = claim_space(main_nodes);
+    			h3 = claim_element(main_nodes, "H3", { class: true });
+    			var h3_nodes = children(h3);
+    			t2 = claim_text(h3_nodes, "Set up new game");
+    			h3_nodes.forEach(detach_dev);
+    			t3 = claim_space(main_nodes);
+    			br2 = claim_element(main_nodes, "BR", {});
+    			t4 = claim_space(main_nodes);
+    			if (if_block0) if_block0.l(main_nodes);
+    			t5 = claim_space(main_nodes);
+    			if (if_block1) if_block1.l(main_nodes);
+    			main_nodes.forEach(detach_dev);
+    			this.h();
+    		},
+    		h: function hydrate() {
+    			add_location(br0, file$f, 78, 4, 2504);
+    			add_location(br1, file$f, 79, 4, 2515);
+    			attr_dev(h3, "class", "svelte-1e5ximz");
+    			add_location(h3, file$f, 80, 4, 2526);
+    			add_location(br2, file$f, 82, 4, 2556);
+    			attr_dev(main, "class", "svelte-1e5ximz");
+    			add_location(main, file$f, 77, 0, 2493);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, br0);
+    			append_dev(main, t0);
+    			append_dev(main, br1);
+    			append_dev(main, t1);
+    			append_dev(main, h3);
+    			append_dev(h3, t2);
+    			append_dev(main, t3);
+    			append_dev(main, br2);
+    			append_dev(main, t4);
+    			if (if_block0) if_block0.m(main, null);
+    			append_dev(main, t5);
+    			if (if_block1) if_block1.m(main, null);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!/*gameSetupDone*/ ctx[8]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+
+    					if (dirty & /*gameSetupDone*/ 256) {
+    						transition_in(if_block0, 1);
+    					}
+    				} else {
+    					if_block0 = create_if_block_1$6(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(main, t5);
+    				}
+    			} else if (if_block0) {
+    				group_outros();
+
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*gameSetupDone*/ ctx[8]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty & /*gameSetupDone*/ 256) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block$8(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(main, null);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block0);
+    			transition_in(if_block1);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block0);
+    			transition_out(if_block1);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$h.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$h($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("NewGame", slots, []);
+
+    	var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
+    		function adopt(value) {
+    			return value instanceof P
+    			? value
+    			: new P(function (resolve) {
+    						resolve(value);
+    					});
+    		}
+
+    		return new (P || (P = Promise))(function (resolve, reject) {
+    				function fulfilled(value) {
+    					try {
+    						step(generator.next(value));
+    					} catch(e) {
+    						reject(e);
+    					}
+    				}
+
+    				function rejected(value) {
+    					try {
+    						step(generator["throw"](value));
+    					} catch(e) {
+    						reject(e);
+    					}
+    				}
+
+    				function step(result) {
+    					result.done
+    					? resolve(result.value)
+    					: adopt(result.value).then(fulfilled, rejected);
+    				}
+
+    				step((generator = generator.apply(thisArg, _arguments || [])).next());
+    			});
+    	};
+
+    	
+
+    	//TODO add validation
+    	//remove add functionality when fetch is done
+    	let questions = [];
+
+    	let claims = [];
+    	let categoryItems = [];
+    	let languageItems = [];
+    	let questionUrl = randomquestion;
+    	let claimurl = randomclaim;
+    	let questionTitle = "Question";
+    	let claimTitle = "Claim";
+    	let gameSetupDone = false;
+    	let questionAdded = false;
+    	let claimsAdded = false;
+
+    	onMount(() => __awaiter(void 0, void 0, void 0, function* () {
+    		doGet(categoryUrl).then(c => c.map(i => $$invalidate(2, categoryItems = [...categoryItems, { value: i.id, label: i.name }])));
+    		doGet(languageUrl).then(l => l.map(i => $$invalidate(3, languageItems = [...languageItems, { value: i.id, label: i.name }])));
+    	}));
+
+    	beforeUpdate(() => {
+    		if (questions.length > 0) {
+    			console.log("FIRE");
+    			$$invalidate(9, questionAdded = true);
+    		}
+
+    		if (claims.length > 0) {
+    			console.log("BOOM");
+    			$$invalidate(10, claimsAdded = true);
+    		}
+    	});
+
+    	function setGameSetupDone() {
+    		// navigate('/game', { replace: true });
+    		$$invalidate(8, gameSetupDone = true);
     	}
 
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$1.warn(`<NewGame> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$2.warn(`<NewGame> was created with unknown prop '${key}'`);
     	});
 
-    	function input0_input_handler() {
-    		quantityQuestion = to_number(this.value);
-    		$$invalidate(2, quantityQuestion);
+    	function gamesetupitem_title_binding(value) {
+    		questionTitle = value;
+    		$$invalidate(6, questionTitle);
     	}
 
-    	function input1_input_handler() {
-    		quantityClaim = to_number(this.value);
-    		$$invalidate(3, quantityClaim);
+    	function gamesetupitem_url_binding(value) {
+    		questionUrl = value;
+    		$$invalidate(4, questionUrl);
+    	}
+
+    	function gamesetupitem_categoryItems_binding(value) {
+    		categoryItems = value;
+    		$$invalidate(2, categoryItems);
+    	}
+
+    	function gamesetupitem_languageItems_binding(value) {
+    		languageItems = value;
+    		$$invalidate(3, languageItems);
+    	}
+
+    	function gamesetupitem_list_binding(value) {
+    		questions = value;
+    		$$invalidate(0, questions);
+    	}
+
+    	function gamesetupitem_title_binding_1(value) {
+    		claimTitle = value;
+    		$$invalidate(7, claimTitle);
+    	}
+
+    	function gamesetupitem_url_binding_1(value) {
+    		claimurl = value;
+    		$$invalidate(5, claimurl);
+    	}
+
+    	function gamesetupitem_categoryItems_binding_1(value) {
+    		categoryItems = value;
+    		$$invalidate(2, categoryItems);
+    	}
+
+    	function gamesetupitem_languageItems_binding_1(value) {
+    		languageItems = value;
+    		$$invalidate(3, languageItems);
+    	}
+
+    	function gamesetupitem_list_binding_1(value) {
+    		claims = value;
+    		$$invalidate(1, claims);
     	}
 
     	$$self.$capture_state = () => ({
-    		questionUrl,
+    		__awaiter,
+    		navigate,
     		claimUrl,
     		doGet,
-    		doGetWithParams,
     		randomquestion,
+    		randomclaim,
+    		categoryUrl,
+    		languageUrl,
+    		onMount,
+    		beforeUpdate,
+    		Game,
+    		GameSetupItem,
+    		GameSetupItemDone,
     		questions,
     		claims,
-    		quantityQuestion,
-    		quantityClaim,
-    		getQuestions,
-    		getClaims
+    		categoryItems,
+    		languageItems,
+    		questionUrl,
+    		claimurl,
+    		questionTitle,
+    		claimTitle,
+    		gameSetupDone,
+    		questionAdded,
+    		claimsAdded,
+    		setGameSetupDone
     	});
 
     	$$self.$inject_state = $$props => {
+    		if ("__awaiter" in $$props) __awaiter = $$props.__awaiter;
     		if ("questions" in $$props) $$invalidate(0, questions = $$props.questions);
     		if ("claims" in $$props) $$invalidate(1, claims = $$props.claims);
-    		if ("quantityQuestion" in $$props) $$invalidate(2, quantityQuestion = $$props.quantityQuestion);
-    		if ("quantityClaim" in $$props) $$invalidate(3, quantityClaim = $$props.quantityClaim);
+    		if ("categoryItems" in $$props) $$invalidate(2, categoryItems = $$props.categoryItems);
+    		if ("languageItems" in $$props) $$invalidate(3, languageItems = $$props.languageItems);
+    		if ("questionUrl" in $$props) $$invalidate(4, questionUrl = $$props.questionUrl);
+    		if ("claimurl" in $$props) $$invalidate(5, claimurl = $$props.claimurl);
+    		if ("questionTitle" in $$props) $$invalidate(6, questionTitle = $$props.questionTitle);
+    		if ("claimTitle" in $$props) $$invalidate(7, claimTitle = $$props.claimTitle);
+    		if ("gameSetupDone" in $$props) $$invalidate(8, gameSetupDone = $$props.gameSetupDone);
+    		if ("questionAdded" in $$props) $$invalidate(9, questionAdded = $$props.questionAdded);
+    		if ("claimsAdded" in $$props) $$invalidate(10, claimsAdded = $$props.claimsAdded);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -9718,33 +11574,47 @@ var app = (function () {
     	return [
     		questions,
     		claims,
-    		quantityQuestion,
-    		quantityClaim,
-    		getQuestions,
-    		getClaims,
-    		input0_input_handler,
-    		input1_input_handler
+    		categoryItems,
+    		languageItems,
+    		questionUrl,
+    		claimurl,
+    		questionTitle,
+    		claimTitle,
+    		gameSetupDone,
+    		questionAdded,
+    		claimsAdded,
+    		setGameSetupDone,
+    		gamesetupitem_title_binding,
+    		gamesetupitem_url_binding,
+    		gamesetupitem_categoryItems_binding,
+    		gamesetupitem_languageItems_binding,
+    		gamesetupitem_list_binding,
+    		gamesetupitem_title_binding_1,
+    		gamesetupitem_url_binding_1,
+    		gamesetupitem_categoryItems_binding_1,
+    		gamesetupitem_languageItems_binding_1,
+    		gamesetupitem_list_binding_1
     	];
     }
 
     class NewGame extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$d, create_fragment$d, safe_not_equal, {});
+    		init(this, options, instance$h, create_fragment$h, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "NewGame",
     			options,
-    			id: create_fragment$d.name
+    			id: create_fragment$h.name
     		});
     	}
     }
 
     /* src/App.svelte generated by Svelte v3.26.0 */
-    const file$c = "src/App.svelte";
+    const file$g = "src/App.svelte";
 
-    // (60:16) <Link to="/">
+    // (61:16) <Link to="/">
     function create_default_slot_6(ctx) {
     	let t;
 
@@ -9767,14 +11637,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(60:16) <Link to=\\\"/\\\">",
+    		source: "(61:16) <Link to=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:16) <Link to="about">
+    // (62:16) <Link to="about">
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -9797,14 +11667,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(61:16) <Link to=\\\"about\\\">",
+    		source: "(62:16) <Link to=\\\"about\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (62:16) <Link to="bottlespinn">
+    // (63:16) <Link to="bottlespinn">
     function create_default_slot_4(ctx) {
     	let t;
 
@@ -9827,14 +11697,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(62:16) <Link to=\\\"bottlespinn\\\">",
+    		source: "(63:16) <Link to=\\\"bottlespinn\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:16) <Link to="addnew">
+    // (64:16) <Link to="addnew">
     function create_default_slot_3(ctx) {
     	let t;
 
@@ -9857,14 +11727,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(63:16) <Link to=\\\"addnew\\\">",
+    		source: "(64:16) <Link to=\\\"addnew\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:16) <Link to="newgame">
+    // (65:16) <Link to="newgame">
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -9887,14 +11757,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(64:16) <Link to=\\\"newgame\\\">",
+    		source: "(65:16) <Link to=\\\"newgame\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (76:16) <Route path="/">
+    // (78:16) <Route path="/">
     function create_default_slot_1(ctx) {
     	let home;
     	let current;
@@ -9929,14 +11799,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(76:16) <Route path=\\\"/\\\">",
+    		source: "(78:16) <Route path=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:8) <Router {url}>
+    // (59:8) <Router {url}>
     function create_default_slot$1(ctx) {
     	let nav;
     	let link0;
@@ -9959,6 +11829,8 @@ var app = (function () {
     	let route3;
     	let t8;
     	let route4;
+    	let t9;
+    	let route5;
     	let current;
 
     	link0 = new Link({
@@ -10030,6 +11902,11 @@ var app = (function () {
     		});
 
     	route4 = new Route({
+    			props: { path: "game", component: Game },
+    			$$inline: true
+    		});
+
+    	route5 = new Route({
     			props: {
     				path: "/",
     				$$slots: { default: [create_default_slot_1] },
@@ -10061,6 +11938,8 @@ var app = (function () {
     			create_component(route3.$$.fragment);
     			t8 = space();
     			create_component(route4.$$.fragment);
+    			t9 = space();
+    			create_component(route5.$$.fragment);
     			this.h();
     		},
     		l: function claim(nodes) {
@@ -10088,13 +11967,15 @@ var app = (function () {
     			claim_component(route3.$$.fragment, div_nodes);
     			t8 = claim_space(div_nodes);
     			claim_component(route4.$$.fragment, div_nodes);
+    			t9 = claim_space(div_nodes);
+    			claim_component(route5.$$.fragment, div_nodes);
     			div_nodes.forEach(detach_dev);
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(nav, "class", "nav svelte-ne7kgf");
-    			add_location(nav, file$c, 58, 12, 1415);
-    			add_location(div, file$c, 65, 12, 1709);
+    			attr_dev(nav, "class", "nav svelte-1v0ai3u");
+    			add_location(nav, file$g, 59, 12, 1459);
+    			add_location(div, file$g, 66, 12, 1753);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
@@ -10118,6 +11999,8 @@ var app = (function () {
     			mount_component(route3, div, null);
     			append_dev(div, t8);
     			mount_component(route4, div, null);
+    			append_dev(div, t9);
+    			mount_component(route5, div, null);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
@@ -10156,13 +12039,13 @@ var app = (function () {
     			}
 
     			link4.$set(link4_changes);
-    			const route4_changes = {};
+    			const route5_changes = {};
 
     			if (dirty & /*$$scope*/ 2) {
-    				route4_changes.$$scope = { dirty, ctx };
+    				route5_changes.$$scope = { dirty, ctx };
     			}
 
-    			route4.$set(route4_changes);
+    			route5.$set(route5_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -10176,6 +12059,7 @@ var app = (function () {
     			transition_in(route2.$$.fragment, local);
     			transition_in(route3.$$.fragment, local);
     			transition_in(route4.$$.fragment, local);
+    			transition_in(route5.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
@@ -10189,6 +12073,7 @@ var app = (function () {
     			transition_out(route2.$$.fragment, local);
     			transition_out(route3.$$.fragment, local);
     			transition_out(route4.$$.fragment, local);
+    			transition_out(route5.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -10205,6 +12090,7 @@ var app = (function () {
     			destroy_component(route2);
     			destroy_component(route3);
     			destroy_component(route4);
+    			destroy_component(route5);
     		}
     	};
 
@@ -10212,14 +12098,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(58:8) <Router {url}>",
+    		source: "(59:8) <Router {url}>",
     		ctx
     	});
 
     	return block;
     }
 
-    function create_fragment$e(ctx) {
+    function create_fragment$i(ctx) {
     	let main;
     	let div;
     	let img;
@@ -10267,16 +12153,16 @@ var app = (function () {
     			this.h();
     		},
     		h: function hydrate() {
-    			attr_dev(img, "class", "logoimg svelte-ne7kgf");
+    			attr_dev(img, "class", "logoimg svelte-1v0ai3u");
     			if (img.src !== (img_src_value = "tmpLogo.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "height", "100px");
     			attr_dev(img, "alt", "logo");
     			attr_dev(img, "id", "myLogo");
-    			add_location(img, file$c, 56, 8, 1300);
+    			add_location(img, file$g, 57, 8, 1344);
     			attr_dev(div, "class", "headercontainer");
-    			add_location(div, file$c, 55, 4, 1262);
-    			attr_dev(main, "class", "svelte-ne7kgf");
-    			add_location(main, file$c, 54, 0, 1251);
+    			add_location(div, file$g, 56, 4, 1306);
+    			attr_dev(main, "class", "svelte-1v0ai3u");
+    			add_location(main, file$g, 55, 0, 1295);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
@@ -10313,7 +12199,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$e.name,
+    		id: create_fragment$i.name,
     		type: "component",
     		source: "",
     		ctx
@@ -10322,7 +12208,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$e($$self, $$props, $$invalidate) {
+    function instance$i($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("App", slots, []);
     	let { url = "" } = $$props; //This property is necessary declare to avoid ignore the Router
@@ -10345,6 +12231,7 @@ var app = (function () {
     		Bottlespinn,
     		AddNew,
     		NewGame,
+    		Game,
     		url
     	});
 
@@ -10362,13 +12249,13 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$e, create_fragment$e, safe_not_equal, { url: 0 });
+    		init(this, options, instance$i, create_fragment$i, safe_not_equal, { url: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$e.name
+    			id: create_fragment$i.name
     		});
     	}
 
