@@ -1,5 +1,4 @@
 <script lang="ts">
-    let pageName: string = 'About Page';
 </script>
 
 <style>
@@ -15,8 +14,20 @@
             max-width: none;
         }
     }
+    h3 {
+        color: #277bab;
+        font-size: 1rem;
+    }
+
+    h2 {
+        color: #67a2c4;
+        font-size: 2rem;
+    }
 </style>
 
 <main>
-    <p>Welcome this is my <b>{pageName}</b></p>
+    <br />
+    <br />
+    <h2>Welcome to beetlejuice drinking game app!</h2>
+    <h3>This is just for fun, but i you are looking to contribute please feel free to contact us</h3>
 </main>

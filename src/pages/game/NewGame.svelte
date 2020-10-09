@@ -1,18 +1,60 @@
 <script lang="ts">
-    import { questionUrl, claimUrl, doGet, doGetWithParams, randomquestion } from '../../ApiUtils';
-    import type { ClaimObject, QuestionObject } from '../../types';
+    import { navigate } from 'svelte-routing';
+    import { claimUrl, doGet, randomquestion, randomclaim, categoryUrl, languageUrl } from '../../ApiUtils';
+    import type {
+        ClaimObject,
+        QuestionObject,
+        dropdownItem,
+        languageObject,
+        categoryObject,
+    } from '../../types';
+    import { onMount, beforeUpdate } from 'svelte';
+    import Game from './Game.svelte';
+    import GameSetupItem from './GameSetupItem.svelte';
+    import GameSetupItemDone from './GameSetupItemDone.svelte';
+
+    //TODO add validation
+    //remove add functionality when fetch is done
 
     let questions: QuestionObject[] = [];
     let claims: ClaimObject[] = [];
 
-    let quantityQuestion: number = 10;
-    let quantityClaim: number = 10;
+    let categoryItems: dropdownItem[] = [];
+    let languageItems: dropdownItem[] = [];
 
-    function getQuestions() {
-        doGetWithParams(randomquestion, quantityQuestion).then((qs) => (questions = qs));
-    }
-    function getClaims() {
-        doGet(claimUrl).then((qs) => (claims = qs));
+    let questionUrl: string = randomquestion;
+    let claimurl: string = randomclaim;
+    let questionTitle: string = 'Question';
+    let claimTitle: string = 'Claim';
+
+    let gameSetupDone: boolean = false;
+
+    let questionAdded: boolean = false;
+    let claimsAdded: boolean = false;
+
+    onMount(async () => {
+        doGet(categoryUrl).then((c) =>
+            c.map((i: categoryObject) => (categoryItems = [...categoryItems, { value: i.id, label: i.name }]))
+        );
+        doGet(languageUrl).then((l) =>
+            l.map((i: languageObject) => (languageItems = [...languageItems, { value: i.id, label: i.name }]))
+        );
+    });
+
+    beforeUpdate(() => {
+        if (questions.length > 0) {
+            console.log('FIRE');
+            questionAdded = true;
+        }
+        if (claims.length > 0) {
+            console.log('BOOM');
+            claimsAdded = true;
+        }
+    });
+
+    function setGameSetupDone() {
+        // navigate('/game', { replace: true });
+        gameSetupDone = true;
     }
 </script>
 
@@ -34,7 +76,7 @@
         align-items: center;
         background: #f0ab7a;
         color: #277bab;
-        border-radius: 10px;
+        border-radius: 4px;
         border: none;
         font-weight: bold;
     }
@@ -47,28 +89,40 @@
 <main>
     <br />
     <br />
-    <h3>Game page</h3>
-    ...under construction <br />
-    <br />
-    <input bind:value={quantityQuestion} type="number" class="quantityquestion" name="fname" />
-    <button on:click={getQuestions}>Get Questions</button>
-    <input bind:value={quantityClaim} type="number" class="quantityclaim" name="fname" />
-    <button on:click={getClaims}>Get Claims</button>
-    <div>
-        {#if questions.length > 0}
-            <h3>questions</h3>
-            {#each questions as qs}
-                <li>{qs.text}</li>
-            {/each}
-        {/if}
-    </div>
+    <h3>Set up new game</h3>
 
-    <div>
-        {#if claims.length > 0}
-            <h3>claims</h3>
-            {#each claims as cl}
-                <li>{cl.text}</li>
-            {/each}
+    <br />
+    {#if !gameSetupDone}
+        {#if !questionAdded}
+            <GameSetupItem
+                bind:title={questionTitle}
+                bind:url={questionUrl}
+                bind:categoryItems
+                bind:languageItems
+                bind:list={questions} />
         {/if}
-    </div>
+        {#if questionAdded}
+            <GameSetupItemDone itemType={questionTitle} quantity={questions.length} />
+        {/if}
+
+        {#if !claimsAdded}
+            <GameSetupItem
+                bind:title={claimTitle}
+                bind:url={claimurl}
+                bind:categoryItems
+                bind:languageItems
+                bind:list={claims} />
+        {/if}
+
+        {#if claimsAdded}
+            <GameSetupItemDone itemType={claimTitle} quantity={claims.length} />
+        {/if}
+
+        <br />
+        <br />
+        <button on:click={setGameSetupDone}>game setup done</button>
+    {/if}
+    {#if gameSetupDone}
+        <Game {questions} {claims} />
+    {/if}
 </main>

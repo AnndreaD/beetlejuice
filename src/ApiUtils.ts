@@ -6,7 +6,14 @@ export const questionUrl = apiBaseUrl + 'question';
 export const claimUrl = apiBaseUrl + 'claim';
 export const categoryUrl = apiBaseUrl + 'category';
 export const languageUrl = apiBaseUrl + 'language';
-export const randomquestion = questionUrl + '/randomquantity/';
+export const randomquestion = questionUrl + '/randomquantity';
+export const randomclaim = claimUrl + '/randomquantity';
+
+export function arrayToParamstring(paramarray) {
+    let returnstring: string = '';
+    paramarray.map((i) => (returnstring = returnstring + '/' + i));
+    return returnstring;
+}
 
 export async function doPost(url: string, body: object) {
     const res = await fetch(url, {

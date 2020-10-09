@@ -3,15 +3,15 @@
     import { doPost, questionUrl, claimUrl, doGet, categoryUrl, languageUrl } from '../../ApiUtils';
     import { onMount } from 'svelte';
     import Select from 'svelte-select';
-    import type { dropdownItems } from '../../types';
+    import type { dropdownItem } from '../../types';
 
     let question: string = '';
-    let questionCategory: dropdownItems = undefined;
-    let questionLanguage: dropdownItems = undefined;
+    let questionCategory: dropdownItem = undefined;
+    let questionLanguage: dropdownItem = undefined;
 
     let claim: string = '';
-    let claimCategory: dropdownItems = undefined;
-    let claimLanguage: dropdownItems = undefined;
+    let claimCategory: dropdownItem = undefined;
+    let claimLanguage: dropdownItem = undefined;
 
     let categoryItems = [];
     let languageItems = [];
@@ -61,7 +61,7 @@
     }
     .containerbox {
         border: 2px solid #f0ab7a;
-        border-radius: 5px;
+        border-radius: 4px;
         width: 40%;
         float: left;
         padding: 1rem;
@@ -69,7 +69,7 @@
         color: #277bab;
     }
     .textarea {
-        width: 400px;
+        width: 100%;
         height: 265px;
     }
     .categoryinput {
