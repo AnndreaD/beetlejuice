@@ -1,4 +1,5 @@
 <script lang="ts">
+    import languageStore from '../stores/language-store'
 </script>
 
 <style>
@@ -28,6 +29,6 @@
 <main>
     <br />
     <br />
-    <h2>Welcome to beetlejuice drinking game app!</h2>
-    <h3>This is just for fun, but i you are looking to contribute please feel free to contact us</h3>
+    <h2>{$languageStore.aboutpagetitle}</h2>
+    <h3>{$languageStore.aboutpagecontent}</h3>
 </main>

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { arrayToParamstring, doGetWithParams } from '../../ApiUtils';
     import type { QuestionObject, dropdownItem } from '../../types';
+    import languageStore from '../../stores/language-store'
     import Select from 'svelte-select';
 
     export let title: string = '';
@@ -88,15 +89,15 @@
         <br />
         <div class="error">
             {#if categoryError}
-                <p>You have to sleect a category</p>
+                <p>{$languageStore.categoryerror}</p>
             {/if}
             {#if languageError}
-                <p>You have to sleect a language</p>
+                <p>{$languageStore.languageerror}</p>
             {/if}
         </div>
 
         <input bind:value={quantity} type="number" class="quantityquestion" name="fname" />
 
-        <button on:click={getData}>Get {title}</button>
+        <button on:click={getData}>{$languageStore.get} {title}</button>
     </div>
 </main>

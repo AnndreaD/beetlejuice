@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import random from '../../functionUtils';
     import type { QuestionObject, ClaimObject } from '../../types';
+    import languageStore from '../../stores/language-store'
 
     //TODO: clean up this spaghetti
     //1: start new game from here
@@ -24,7 +25,6 @@
     let lengthRemaining: number = questions.length + claims.length;
 
     onMount(async () => {
-        console.log(questions);
         if (questions.length > 0) {
             gameoptions.push('Q');
             gamequestions = [...gamequestions, ...questions];
@@ -113,17 +113,17 @@
 <main>
     <div class="gamecontainer">
         {#if !gameEnded}
-            {#if !gameStarted}<button on:click={setGameStarted}>start game </button>{/if}
+            {#if !gameStarted}<button on:click={setGameStarted}>{$languageStore.startgame} </button>{/if}
             {#if !!gameStarted}
                 <h2>{currentTitle}</h2>
                 <h3>{currentText}</h3>
-                <button on:click={getNext}>next</button>
+                <button on:click={getNext}>{$languageStore.next}</button>
             {/if}
         {/if}
 
         {#if gameEnded}
-            <h2>GAME OVER</h2>
-            <h3>the game is now finished, but feel free to start a new one.</h3>
+            <h2>{$languageStore.gameover}</h2>
+            <h3>{$languageStore.gameovermessage}</h3>
         {/if}
     </div>
 </main>

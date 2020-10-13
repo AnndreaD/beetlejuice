@@ -1,4 +1,5 @@
 <script lang="ts">
+    import languageStore from '../stores/language-store'
 </script>
 
 <style>
@@ -22,5 +23,5 @@
 </style>
 
 <main>
-    <p>This site is under construction, check out 'Add new' and bottlespinn</p>
+    <p>{$languageStore.homePage}</p>
 </main>

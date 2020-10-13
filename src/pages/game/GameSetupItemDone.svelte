@@ -1,6 +1,6 @@
 <script lang="ts">
     import Check from 'svelte-material-icons/Check.svelte';
-
+    import languageStore from '../../stores/language-store'
     export let itemType: string = '';
     export let quantity: number = 10;
 
@@ -19,6 +19,6 @@
     <div class="successcontainer">
         <Check {size} {color} />
 
-        <p>Success! {quantity} {itemType} was added to your game</p>
+        <p>{$languageStore.success}{quantity} {itemType}{$languageStore.successmessage}</p>
     </div>
 </main>

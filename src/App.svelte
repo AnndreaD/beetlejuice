@@ -1,12 +1,16 @@
 <script lang="ts">
     import { Router, Route, Link } from 'svelte-routing';
+    import { onDestroy, onMount } from 'svelte';
     import Home from './pages/Home.svelte';
     import About from './pages/About.svelte';
     import Bottlespinn from './pages/Bottlespinn.svelte';
     import AddNew from './pages/admin/AddNew.svelte';
     import NewGame from './pages/game/newGame.svelte';
     import Game from './pages/game/Game.svelte';
+    import languageStore from './stores/language-store'
     export let url: string = ''; //This property is necessary declare to avoid ignore the Router
+
+
 
 </script>
 
@@ -53,18 +57,32 @@
         margin: 0.75rem;
         padding: 0.25rem 0.75rem 0.25rem 0.75rem;
     }
+
+    .langcontainer{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    button{
+        background-color:  white;
+        border: none;
+
+    }
+  
 </style>
 
 <main>
+
     <div class="headercontainer">
         <img class="logoimg" src="tmpLogo.png" height="100px" alt="logo" id="myLogo" />
         <Router {url}>
             <nav class="nav">
-                <Link to="/">Home</Link>
-                <Link to="about">About</Link>
-                <Link to="bottlespinn">Bottlespinn</Link>
+                <Link to="/">{$languageStore.homeLink}</Link>
+                <Link to="about">{$languageStore.aboutLink}</Link>
+                <Link to="bottlespinn">{$languageStore.bottlespinnLink}</Link>
                 <Link to="addnew">Add new</Link>
                 <Link to="newgame">New game</Link>
+
             </nav>
             <div>
                 <Route path="about" component={About} />
@@ -83,4 +101,10 @@
             </div>
         </Router>
     </div>
+    <div class="langcontainer">
+                                <button on:click={languageStore.setNB}>Norsk</button>
+                                 |
+                 <button on:click={languageStore.setEN}>English</button>
+    </div>
+
 </main>

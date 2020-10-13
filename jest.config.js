@@ -3,5 +3,5 @@ module.exports = {
         '^.+\\.svelte$': 'svelte-jester',
         '^.+\\.js$': 'babel-jest',
     },
-    moduleFileExtensions: ['js', 'svelte', 'ts', 'json'],
+    moduleFileExtensions: ['js', 'svelte'],
 };

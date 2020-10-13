@@ -1,4 +1,5 @@
 <script lang="ts">
+        import languageStore from '../stores/language-store'
     function rotateImage() {
         return Math.floor(Math.random() * 360);
     }
@@ -55,7 +56,7 @@
 
 <main>
     <div class="bottlecontainer">
-        <button on:click={toggleVisible}>spinn bottle</button>
+        <button on:click={toggleVisible}>{$languageStore.bottelspinnButton}</button>
         <br />
         <br />
         {#if visibleSpin}

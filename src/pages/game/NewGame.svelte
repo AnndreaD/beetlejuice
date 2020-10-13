@@ -1,5 +1,6 @@
 <script lang="ts">
     import { navigate } from 'svelte-routing';
+    import languageStore from '../../stores/language-store'
     import { claimUrl, doGet, randomquestion, randomclaim, categoryUrl, languageUrl } from '../../ApiUtils';
     import type {
         ClaimObject,
@@ -24,8 +25,10 @@
 
     let questionUrl: string = randomquestion;
     let claimurl: string = randomclaim;
-    let questionTitle: string = 'Question';
-    let claimTitle: string = 'Claim';
+    let questionTitle: string = $languageStore.question;
+    let claimTitle: string = $languageStore.claim;
+
+
 
     let gameSetupDone: boolean = false;
 
@@ -43,11 +46,9 @@
 
     beforeUpdate(() => {
         if (questions.length > 0) {
-            console.log('FIRE');
             questionAdded = true;
         }
         if (claims.length > 0) {
-            console.log('BOOM');
             claimsAdded = true;
         }
     });
@@ -89,7 +90,7 @@
 <main>
     <br />
     <br />
-    <h3>Set up new game</h3>
+    <h3>{$languageStore.setUpNewGame}</h3>
 
     <br />
     {#if !gameSetupDone}
@@ -120,7 +121,7 @@
 
         <br />
         <br />
-        <button on:click={setGameSetupDone}>game setup done</button>
+        <button on:click={setGameSetupDone}>{$languageStore.gameSetupDone}</button>
     {/if}
     {#if gameSetupDone}
         <Game {questions} {claims} />

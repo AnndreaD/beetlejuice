@@ -1,9 +1,10 @@
 <script lang="ts">
-    // POC ->  success flag, some px to rem  etc, clear on post
+    // POC ->  success flag, some px to rem  etc
     import { doPost, questionUrl, claimUrl, doGet, categoryUrl, languageUrl } from '../../ApiUtils';
     import { onMount } from 'svelte';
     import Select from 'svelte-select';
     import type { dropdownItem } from '../../types';
+    import languageStore from '../../stores/language-store'
 
     let question: string = '';
     let questionCategory: dropdownItem = undefined;
@@ -45,6 +46,7 @@
         });
         reset(isQuestion);
     }
+
 </script>
 
 <style>
@@ -98,36 +100,36 @@
     <br />
     <br />
     <div class="containerbox">
-        <h2>New Question</h2>
-        <p>text:</p>
+        <h2>{$languageStore.questiontitle}</h2>
+        <p>{$languageStore.text}:</p>
         <textarea bind:value={question} type="text" class="textarea" id="fname" name="fname" />
-        <p>category:</p>
+        <p>{$languageStore.category}:</p>
         {#if categoryItems.length > 0}
             <Select items={categoryItems} bind:selectedValue={questionCategory} showIndicator="true" />
         {/if}
-        <p>language:</p>
+        <p>{$languageStore.language}:</p>
         {#if languageItems.length > 0}
             <Select items={languageItems} bind:selectedValue={questionLanguage} showIndicator="true" />
         {/if}
         <br />
 
-        <button on:click={() => onPostedDone(questionUrl, true)}>Enter question</button>
+        <button on:click={() => onPostedDone(questionUrl, true)}>{$languageStore.addQuestion}</button>
     </div>
 
     <div class="containerbox">
-        <h2>New Claim</h2>
-        <p>text:</p>
+        <h2>{$languageStore.claimtitle}</h2>
+        <p>{$languageStore.text}:</p>
         <textarea bind:value={claim} type="text" class="textarea" id="fname" name="fname" />
-        <p>category:</p>
+        <p>{$languageStore.category}:</p>
         {#if categoryItems.length > 0}
             <Select items={categoryItems} bind:selectedValue={claimCategory} showIndicator="true" />
         {/if}
-        <p>language:</p>
+        <p>{$languageStore.language}:</p>
         {#if languageItems.length > 0}
             <Select items={languageItems} bind:selectedValue={claimLanguage} showIndicator="true" />
         {/if}
         <br />
 
-        <button on:click={() => onPostedDone(claimUrl, false)}>Enter Claim</button>
+        <button on:click={() => onPostedDone(claimUrl, false)}>{$languageStore.addClaim}</button>
     </div>
 </main>
