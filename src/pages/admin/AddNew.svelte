@@ -47,6 +47,14 @@
         reset(isQuestion);
     }
 
+    function handleSelect(event: CustomEvent<Select>) {
+        // TODO:
+        console.log('handleSelect triggered with event: ', event);
+        const { value, label } = event.detail;
+        console.log('value:', value);
+        console.log('label:', label);
+    }
+
 </script>
 
 <style>
@@ -105,11 +113,11 @@
         <textarea bind:value={question} type="text" class="textarea" id="fname" name="fname" />
         <p>{$languageStore.category}:</p>
         {#if categoryItems.length > 0}
-            <Select items={categoryItems} bind:selectedValue={questionCategory} showIndicator="true" />
+            <Select items={categoryItems} on:select={handleSelect} bind:selectedValue={questionCategory} showIndicator={true} />
         {/if}
         <p>{$languageStore.language}:</p>
         {#if languageItems.length > 0}
-            <Select items={languageItems} bind:selectedValue={questionLanguage} showIndicator="true" />
+            <Select items={languageItems} bind:selectedValue={questionLanguage} showIndicator={true} />
         {/if}
         <br />
 
@@ -122,11 +130,11 @@
         <textarea bind:value={claim} type="text" class="textarea" id="fname" name="fname" />
         <p>{$languageStore.category}:</p>
         {#if categoryItems.length > 0}
-            <Select items={categoryItems} bind:selectedValue={claimCategory} showIndicator="true" />
+            <Select items={categoryItems} bind:selectedValue={claimCategory} showIndicator={true} />
         {/if}
         <p>{$languageStore.language}:</p>
         {#if languageItems.length > 0}
-            <Select items={languageItems} bind:selectedValue={claimLanguage} showIndicator="true" />
+            <Select items={languageItems} bind:selectedValue={claimLanguage} showIndicator={true} />
         {/if}
         <br />
 
