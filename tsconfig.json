@@ -6,8 +6,7 @@
         "resolveJsonModule": true,
             "typeRoots": [
                 "./node_modules/@types",
-                "./types",
-                "./ambient"
+                "./types"
             ]
         
     }
