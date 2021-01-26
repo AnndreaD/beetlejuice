@@ -8,25 +8,24 @@
     import NewGame from './pages/game/newGame.svelte';
     import Game from './pages/game/Game.svelte';
     import languageStore from './stores/language-store'
+    import { routeStore }from './stores/route-store'
     export let url: string = ''; //This property is necessary declare to avoid ignore the Router
 
 
+    function isCurrentPath (path: string ) {
+        console.log(path === $routeStore ? 'active': '')
+        return path === $routeStore ? 'active': ''
+
+    }
 
 </script>
 
-<style>
+<style type="text/scss"> 
     main {
         padding-left: 1em;
         padding-right: 1em;
         max-width: 240px;
         margin: 0 auto;
-    }
-
-    h1 {
-        color: #ff3e00;
-        text-transform: uppercase;
-        font-size: 4em;
-        font-weight: 100;
     }
 
     @media (min-width: 640px) {
@@ -38,7 +37,7 @@
     .nav {
         display: inline-block;
         margin-left: 5rem;
-        margin-top: 3.5rem;
+        margin-top: 2.5rem;
         vertical-align: middle;
     }
     .logoimg {
@@ -46,14 +45,14 @@
         margin-left: 1rem;
         float: left;
     }
-    .link > :global(a) {
-        text-decoration: none;
+    .active > :global(a) {
+          background-color: aqua;
     }
 
     :global(a) {
-        background: #277bab;
-        color: white !important;
+        color: #fb9e90 !important;
         border-radius: 4px;
+        font-weight: bold;
         margin: 0.75rem;
         padding: 0.25rem 0.75rem 0.25rem 0.75rem;
     }
@@ -74,14 +73,14 @@
 <main>
 
     <div class="headercontainer">
-        <img class="logoimg" src="tmpLogo.png" height="100px" alt="logo" id="myLogo" />
+        <img class="logoimg" src="logo.png" height="100px" alt="logo" id="myLogo" />
         <Router {url}>
             <nav class="nav">
-                <Link to="/">{$languageStore.homeLink}</Link>
-                <Link to="about">{$languageStore.aboutLink}</Link>
-                <Link to="bottlespinn">{$languageStore.bottlespinnLink}</Link>
-                <Link to="addnew">Add new</Link>
-                <Link to="newgame">New game</Link>
+                <Link class="active" on:click={()=>routeStore.setCurrentRoute('/')} to="/" >{$languageStore.homeLink}</Link>
+                <Link  class="{isCurrentPath('about')}"  on:click={() =>routeStore.setCurrentRoute('about')}  to="about">{$languageStore.aboutLink}</Link>
+                <Link on:click={() =>routeStore.setCurrentRoute('bottlespinn')}  to="bottlespinn">{$languageStore.bottlespinnLink}</Link>
+                <Link on:click={()=>routeStore.setCurrentRoute('addnew')}  to="addnew">Add new</Link>
+                <Link on:click={()=>routeStore.setCurrentRoute('newgame')}  to="newgame">New game</Link>
 
             </nav>
             <div>
@@ -106,5 +105,6 @@
                                  |
                  <button on:click={languageStore.setEN}>English</button>
     </div>
+    {$routeStore}
 
 </main>

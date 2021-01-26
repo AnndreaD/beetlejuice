@@ -1,2 +1,9 @@
 $perfect-peach: #ff9b8c;
 $green: #65ccb8;
+
+//or #fb9e90 for peach
+
+:export {
+    perfectPeach: $perfect-peach;
+    greenish: $green;
+}
