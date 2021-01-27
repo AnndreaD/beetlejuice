@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Router, Route, Link } from 'svelte-routing';
+    import { Router, Route, Link, link } from 'svelte-routing';
     import { onDestroy, onMount } from 'svelte';
     import Home from './pages/Home.svelte';
     import About from './pages/About.svelte';
@@ -13,8 +13,8 @@
 
 
     function isCurrentPath (path: string ) {
-        console.log(path === $routeStore ? 'active': '')
-        return path === $routeStore ? 'active': ''
+        console.log(path === window.location.pathname? 'active': 'not')
+        return path === window.location.pathname? 'active': ''
 
     }
 
@@ -45,13 +45,14 @@
         margin-left: 1rem;
         float: left;
     }
-    .active > :global(a) {
-          background-color: aqua;
+    .active  {
+        
+         border-bottom: 3px solid black;
+         padding-bottom: 8px;
     }
 
     :global(a) {
         color: #fb9e90 !important;
-        border-radius: 4px;
         font-weight: bold;
         margin: 0.75rem;
         padding: 0.25rem 0.75rem 0.25rem 0.75rem;
@@ -76,11 +77,17 @@
         <img class="logoimg" src="logo.png" height="100px" alt="logo" id="myLogo" />
         <Router {url}>
             <nav class="nav">
-                <Link class="active" on:click={()=>routeStore.setCurrentRoute('/')} to="/" >{$languageStore.homeLink}</Link>
-                <Link  class="{isCurrentPath('about')}"  on:click={() =>routeStore.setCurrentRoute('about')}  to="about">{$languageStore.aboutLink}</Link>
-                <Link on:click={() =>routeStore.setCurrentRoute('bottlespinn')}  to="bottlespinn">{$languageStore.bottlespinnLink}</Link>
-                <Link on:click={()=>routeStore.setCurrentRoute('addnew')}  to="addnew">Add new</Link>
-                <Link on:click={()=>routeStore.setCurrentRoute('newgame')}  to="newgame">New game</Link>
+                <a class="{ '/' === ($routeStore)? 'active': '' }"  on:click={() =>routeStore.setCurrentRoute('/')}  href="/" use:link>{$languageStore.homeLink}</a>
+                
+                <a class="{ '/about' ===($routeStore) ? 'active': '' }"  on:click={() =>routeStore.setCurrentRoute('/about')}  href="about" use:link>{$languageStore.aboutLink}</a>
+
+                <a class="{ '/bottlespin' === ($routeStore) ? 'active': '' }"  on:click={() =>routeStore.setCurrentRoute('/bottlespin')}  href="bottlespin" use:link>{$languageStore.bottlespinnLink}</a>
+
+                 <a class="{ '/addnew' === ($routeStore) ? 'active': '' }"  on:click={() =>routeStore.setCurrentRoute('/addnew')}  href="addnew" use:link>{$languageStore.addNewLink}</a>
+
+                 <a class="{ '/newgame' === ($routeStore) ? 'active': '' }"  on:click={() =>routeStore.setCurrentRoute('/newgame')}  href="newgame" use:link>{$languageStore.newGameLink}</a>
+                
+            
 
             </nav>
             <div>
@@ -105,6 +112,5 @@
                                  |
                  <button on:click={languageStore.setEN}>English</button>
     </div>
-    {$routeStore}
 
 </main>

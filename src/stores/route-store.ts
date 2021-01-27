@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 function setRoute() {
-    const { subscribe, set } = writable('/');
+    const { subscribe, set } = writable(window.location.pathname);
 
     return {
         subscribe,
