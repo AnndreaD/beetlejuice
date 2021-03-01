@@ -16,7 +16,7 @@
         }
     }
     p {
-        color: #277bab;
+        color: black;
         margin-top: 5rem;
         margin-left: -8rem;
     }
