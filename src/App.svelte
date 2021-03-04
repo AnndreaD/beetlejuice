@@ -10,6 +10,47 @@
     import languageStore from './stores/language-store'
     export let url: string = ''; //This property is necessary declare to avoid ignore the Router
 
+    import { auth, db } from "../firebase";
+    /* auth.signInAnonymously()
+    .then(() => {
+        // Signed in..
+        console.log('done anon')
+    })
+    .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
+
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            var uid = user.uid;
+            console.log('logged in!!')
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    }); */
+
+    function writeUserData() {
+        console.log('triggered')
+        db.ref('tester/' + '123').set({
+            username: 'test1',
+            email: 'email1',
+            profile_picture : 'imageUrl_here'
+        }, (error) => {
+            if (error) {
+                // The write failed...
+                console.log('couldnt write bro')
+            } else {
+                // Data saved successfully!
+                console.log('skriftet')
+            }
+        });
+    }
 
 
 </script>
